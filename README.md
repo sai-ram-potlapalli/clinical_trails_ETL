@@ -206,6 +206,6 @@ All configuration is managed through YAML files:
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🆘 Support
+## Support
 
-For questions or issues, please open a GitHub issue or contact the development team. # clinical_trails_ETL
+For questions or issues, please open a GitHub issue. # clinical_trails_ETL
