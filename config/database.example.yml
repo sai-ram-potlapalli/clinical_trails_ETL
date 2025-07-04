@@ -1,0 +1,22 @@
+# Database Configuration Example
+# Copy this file to database.yml and update with your actual credentials
+
+database:
+  type: sqlite
+  filepath: clinical_trials.db
+
+api:
+  base_url: https://clinicaltrials.gov/api/query/study_fields
+  timeout: 30
+  max_retries: 3
+  batch_size: 1000
+
+logging:
+  level: INFO
+  format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+  file: logs/clinical_trials.log
+
+etl:
+  batch_size: 1000
+  max_workers: 4
+  timeout: 300 

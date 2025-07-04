@@ -1,0 +1,1827 @@
+2025-07-03 20:59:12,165 - etl_logger - INFO - _setup_connection:44 - Database connection established: sqlite
+2025-07-03 20:59:12,167 - etl_logger - INFO - log_etl_start:74 - ETL Job Started: Extract Clinical Trials Data
+2025-07-03 20:59:12,167 - etl_logger - INFO - extract_trials_data:56 - Starting clinical trials data extraction
+2025-07-03 20:59:12,374 - etl_logger - ERROR - log_error:114 - Error in API request: 404 Client Error: Not Found for url: https://clinicaltrials.gov/api/query/study_fields?expr=&fields=NCTId&min_rnk=1&max_rnk=1&fmt=json
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/data_ingestion/api_client.py", line 68, in _make_request
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/requests/models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://clinicaltrials.gov/api/query/study_fields?expr=&fields=NCTId&min_rnk=1&max_rnk=1&fmt=json
+2025-07-03 20:59:13,436 - etl_logger - ERROR - log_error:114 - Error in API request: 404 Client Error: Not Found for url: https://clinicaltrials.gov/api/query/study_fields?expr=&fields=NCTId&min_rnk=1&max_rnk=1&fmt=json
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/data_ingestion/api_client.py", line 68, in _make_request
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/requests/models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://clinicaltrials.gov/api/query/study_fields?expr=&fields=NCTId&min_rnk=1&max_rnk=1&fmt=json
+2025-07-03 20:59:15,498 - etl_logger - ERROR - log_error:114 - Error in API request: 404 Client Error: Not Found for url: https://clinicaltrials.gov/api/query/study_fields?expr=&fields=NCTId&min_rnk=1&max_rnk=1&fmt=json
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/data_ingestion/api_client.py", line 68, in _make_request
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/requests/models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://clinicaltrials.gov/api/query/study_fields?expr=&fields=NCTId&min_rnk=1&max_rnk=1&fmt=json
+2025-07-03 20:59:15,499 - etl_logger - ERROR - log_error:114 - Error in Data extraction: 404 Client Error: Not Found for url: https://clinicaltrials.gov/api/query/study_fields?expr=&fields=NCTId&min_rnk=1&max_rnk=1&fmt=json
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/data_ingestion/extract_trials.py", line 63, in extract_trials_data
+    for trial in api_client.search_trials(
+                 ~~~~~~~~~~~~~~~~~~~~~~~~^
+        search_terms=search_terms,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        limit=limit
+        ^^^^^^^^^^^
+    ):
+    ^
+  File "/Users/sairampotlapalli/clinical_trails/data_ingestion/api_client.py", line 191, in search_trials
+    count_response = self._make_request(count_params)
+  File "/Users/sairampotlapalli/clinical_trails/data_ingestion/api_client.py", line 68, in _make_request
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/requests/models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://clinicaltrials.gov/api/query/study_fields?expr=&fields=NCTId&min_rnk=1&max_rnk=1&fmt=json
+2025-07-03 20:59:15,501 - etl_logger - ERROR - log_error:114 - Error in Extract Clinical Trials Data: 404 Client Error: Not Found for url: https://clinicaltrials.gov/api/query/study_fields?expr=&fields=NCTId&min_rnk=1&max_rnk=1&fmt=json
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/utils/logging.py", line 169, in wrapper
+    result = func(*args, **kwargs)
+  File "/Users/sairampotlapalli/clinical_trails/data_ingestion/extract_trials.py", line 63, in extract_trials_data
+    for trial in api_client.search_trials(
+                 ~~~~~~~~~~~~~~~~~~~~~~~~^
+        search_terms=search_terms,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        limit=limit
+        ^^^^^^^^^^^
+    ):
+    ^
+  File "/Users/sairampotlapalli/clinical_trails/data_ingestion/api_client.py", line 191, in search_trials
+    count_response = self._make_request(count_params)
+  File "/Users/sairampotlapalli/clinical_trails/data_ingestion/api_client.py", line 68, in _make_request
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/requests/models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://clinicaltrials.gov/api/query/study_fields?expr=&fields=NCTId&min_rnk=1&max_rnk=1&fmt=json
+2025-07-03 20:59:15,504 - etl_logger - INFO - log_etl_end:91 - ETL Job Completed: Extract Clinical Trials Data - Duration: 3.34s, Rows: 0
+2025-07-03 20:59:15,504 - etl_logger - ERROR - log_error:114 - Error in Main extraction: 404 Client Error: Not Found for url: https://clinicaltrials.gov/api/query/study_fields?expr=&fields=NCTId&min_rnk=1&max_rnk=1&fmt=json
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/data_ingestion/extract_trials.py", line 217, in main
+    df = extract_trials_data(
+        search_terms=args.search_terms,
+    ...<7 lines>...
+        save_to_file=args.save_file
+    )
+  File "/Users/sairampotlapalli/clinical_trails/utils/logging.py", line 169, in wrapper
+    result = func(*args, **kwargs)
+  File "/Users/sairampotlapalli/clinical_trails/data_ingestion/extract_trials.py", line 63, in extract_trials_data
+    for trial in api_client.search_trials(
+                 ~~~~~~~~~~~~~~~~~~~~~~~~^
+        search_terms=search_terms,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        limit=limit
+        ^^^^^^^^^^^
+    ):
+    ^
+  File "/Users/sairampotlapalli/clinical_trails/data_ingestion/api_client.py", line 191, in search_trials
+    count_response = self._make_request(count_params)
+  File "/Users/sairampotlapalli/clinical_trails/data_ingestion/api_client.py", line 68, in _make_request
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/requests/models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://clinicaltrials.gov/api/query/study_fields?expr=&fields=NCTId&min_rnk=1&max_rnk=1&fmt=json
+2025-07-03 20:59:15,507 - etl_logger - INFO - close:307 - API client session closed
+2025-07-03 20:59:15,507 - etl_logger - INFO - close:249 - Database connections closed
+2025-07-03 21:01:31,598 - etl_logger - INFO - _setup_connection:44 - Database connection established: sqlite
+2025-07-03 21:01:31,599 - etl_logger - INFO - log_etl_start:74 - ETL Job Started: Extract Clinical Trials Data
+2025-07-03 21:01:31,599 - etl_logger - INFO - extract_trials_data:56 - Starting clinical trials data extraction
+2025-07-03 21:01:31,722 - etl_logger - ERROR - log_error:114 - Error in API request: 404 Client Error: Not Found for url: https://clinicaltrials.gov/api/query/study_fields?query.term=&fields=NCTId%2CBriefTitle%2COfficialTitle%2CLeadSponsorName%2CLeadSponsorClass%2CCondition%2CInterventionName%2CInterventionType%2CPhase%2CEnrollmentCount%2CStudyStartDate%2CPrimaryCompletionDate%2CStudyCompletionDate%2CStatus%2CLocationCountry%2CLocationState%2CLocationCity%2CLocationFacility%2CStudyType%2CAllocation%2CInterventionModel%2CPrimaryPurpose%2CMaskingInfo%2COutcomeMeasureDescription&pageSize=1
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/data_ingestion/api_client.py", line 68, in _make_request
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/requests/models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://clinicaltrials.gov/api/query/study_fields?query.term=&fields=NCTId%2CBriefTitle%2COfficialTitle%2CLeadSponsorName%2CLeadSponsorClass%2CCondition%2CInterventionName%2CInterventionType%2CPhase%2CEnrollmentCount%2CStudyStartDate%2CPrimaryCompletionDate%2CStudyCompletionDate%2CStatus%2CLocationCountry%2CLocationState%2CLocationCity%2CLocationFacility%2CStudyType%2CAllocation%2CInterventionModel%2CPrimaryPurpose%2CMaskingInfo%2COutcomeMeasureDescription&pageSize=1
+2025-07-03 21:01:32,788 - etl_logger - ERROR - log_error:114 - Error in API request: 404 Client Error: Not Found for url: https://clinicaltrials.gov/api/query/study_fields?query.term=&fields=NCTId%2CBriefTitle%2COfficialTitle%2CLeadSponsorName%2CLeadSponsorClass%2CCondition%2CInterventionName%2CInterventionType%2CPhase%2CEnrollmentCount%2CStudyStartDate%2CPrimaryCompletionDate%2CStudyCompletionDate%2CStatus%2CLocationCountry%2CLocationState%2CLocationCity%2CLocationFacility%2CStudyType%2CAllocation%2CInterventionModel%2CPrimaryPurpose%2CMaskingInfo%2COutcomeMeasureDescription&pageSize=1
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/data_ingestion/api_client.py", line 68, in _make_request
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/requests/models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://clinicaltrials.gov/api/query/study_fields?query.term=&fields=NCTId%2CBriefTitle%2COfficialTitle%2CLeadSponsorName%2CLeadSponsorClass%2CCondition%2CInterventionName%2CInterventionType%2CPhase%2CEnrollmentCount%2CStudyStartDate%2CPrimaryCompletionDate%2CStudyCompletionDate%2CStatus%2CLocationCountry%2CLocationState%2CLocationCity%2CLocationFacility%2CStudyType%2CAllocation%2CInterventionModel%2CPrimaryPurpose%2CMaskingInfo%2COutcomeMeasureDescription&pageSize=1
+2025-07-03 21:01:34,857 - etl_logger - ERROR - log_error:114 - Error in API request: 404 Client Error: Not Found for url: https://clinicaltrials.gov/api/query/study_fields?query.term=&fields=NCTId%2CBriefTitle%2COfficialTitle%2CLeadSponsorName%2CLeadSponsorClass%2CCondition%2CInterventionName%2CInterventionType%2CPhase%2CEnrollmentCount%2CStudyStartDate%2CPrimaryCompletionDate%2CStudyCompletionDate%2CStatus%2CLocationCountry%2CLocationState%2CLocationCity%2CLocationFacility%2CStudyType%2CAllocation%2CInterventionModel%2CPrimaryPurpose%2CMaskingInfo%2COutcomeMeasureDescription&pageSize=1
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/data_ingestion/api_client.py", line 68, in _make_request
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/requests/models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://clinicaltrials.gov/api/query/study_fields?query.term=&fields=NCTId%2CBriefTitle%2COfficialTitle%2CLeadSponsorName%2CLeadSponsorClass%2CCondition%2CInterventionName%2CInterventionType%2CPhase%2CEnrollmentCount%2CStudyStartDate%2CPrimaryCompletionDate%2CStudyCompletionDate%2CStatus%2CLocationCountry%2CLocationState%2CLocationCity%2CLocationFacility%2CStudyType%2CAllocation%2CInterventionModel%2CPrimaryPurpose%2CMaskingInfo%2COutcomeMeasureDescription&pageSize=1
+2025-07-03 21:01:34,859 - etl_logger - ERROR - log_error:114 - Error in Search trials: 404 Client Error: Not Found for url: https://clinicaltrials.gov/api/query/study_fields?query.term=&fields=NCTId%2CBriefTitle%2COfficialTitle%2CLeadSponsorName%2CLeadSponsorClass%2CCondition%2CInterventionName%2CInterventionType%2CPhase%2CEnrollmentCount%2CStudyStartDate%2CPrimaryCompletionDate%2CStudyCompletionDate%2CStatus%2CLocationCountry%2CLocationState%2CLocationCity%2CLocationFacility%2CStudyType%2CAllocation%2CInterventionModel%2CPrimaryPurpose%2CMaskingInfo%2COutcomeMeasureDescription&pageSize=1
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/data_ingestion/api_client.py", line 159, in search_trials
+    response = self._make_request(params)
+  File "/Users/sairampotlapalli/clinical_trails/data_ingestion/api_client.py", line 68, in _make_request
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/requests/models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://clinicaltrials.gov/api/query/study_fields?query.term=&fields=NCTId%2CBriefTitle%2COfficialTitle%2CLeadSponsorName%2CLeadSponsorClass%2CCondition%2CInterventionName%2CInterventionType%2CPhase%2CEnrollmentCount%2CStudyStartDate%2CPrimaryCompletionDate%2CStudyCompletionDate%2CStatus%2CLocationCountry%2CLocationState%2CLocationCity%2CLocationFacility%2CStudyType%2CAllocation%2CInterventionModel%2CPrimaryPurpose%2CMaskingInfo%2COutcomeMeasureDescription&pageSize=1
+2025-07-03 21:01:34,859 - etl_logger - ERROR - log_error:114 - Error in Data extraction: 404 Client Error: Not Found for url: https://clinicaltrials.gov/api/query/study_fields?query.term=&fields=NCTId%2CBriefTitle%2COfficialTitle%2CLeadSponsorName%2CLeadSponsorClass%2CCondition%2CInterventionName%2CInterventionType%2CPhase%2CEnrollmentCount%2CStudyStartDate%2CPrimaryCompletionDate%2CStudyCompletionDate%2CStatus%2CLocationCountry%2CLocationState%2CLocationCity%2CLocationFacility%2CStudyType%2CAllocation%2CInterventionModel%2CPrimaryPurpose%2CMaskingInfo%2COutcomeMeasureDescription&pageSize=1
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/data_ingestion/extract_trials.py", line 63, in extract_trials_data
+    for trial in api_client.search_trials(
+                 ~~~~~~~~~~~~~~~~~~~~~~~~^
+        search_terms=search_terms,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        limit=limit
+        ^^^^^^^^^^^
+    ):
+    ^
+  File "/Users/sairampotlapalli/clinical_trails/data_ingestion/api_client.py", line 159, in search_trials
+    response = self._make_request(params)
+  File "/Users/sairampotlapalli/clinical_trails/data_ingestion/api_client.py", line 68, in _make_request
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/requests/models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://clinicaltrials.gov/api/query/study_fields?query.term=&fields=NCTId%2CBriefTitle%2COfficialTitle%2CLeadSponsorName%2CLeadSponsorClass%2CCondition%2CInterventionName%2CInterventionType%2CPhase%2CEnrollmentCount%2CStudyStartDate%2CPrimaryCompletionDate%2CStudyCompletionDate%2CStatus%2CLocationCountry%2CLocationState%2CLocationCity%2CLocationFacility%2CStudyType%2CAllocation%2CInterventionModel%2CPrimaryPurpose%2CMaskingInfo%2COutcomeMeasureDescription&pageSize=1
+2025-07-03 21:01:34,862 - etl_logger - ERROR - log_error:114 - Error in Extract Clinical Trials Data: 404 Client Error: Not Found for url: https://clinicaltrials.gov/api/query/study_fields?query.term=&fields=NCTId%2CBriefTitle%2COfficialTitle%2CLeadSponsorName%2CLeadSponsorClass%2CCondition%2CInterventionName%2CInterventionType%2CPhase%2CEnrollmentCount%2CStudyStartDate%2CPrimaryCompletionDate%2CStudyCompletionDate%2CStatus%2CLocationCountry%2CLocationState%2CLocationCity%2CLocationFacility%2CStudyType%2CAllocation%2CInterventionModel%2CPrimaryPurpose%2CMaskingInfo%2COutcomeMeasureDescription&pageSize=1
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/utils/logging.py", line 169, in wrapper
+    result = func(*args, **kwargs)
+  File "/Users/sairampotlapalli/clinical_trails/data_ingestion/extract_trials.py", line 63, in extract_trials_data
+    for trial in api_client.search_trials(
+                 ~~~~~~~~~~~~~~~~~~~~~~~~^
+        search_terms=search_terms,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        limit=limit
+        ^^^^^^^^^^^
+    ):
+    ^
+  File "/Users/sairampotlapalli/clinical_trails/data_ingestion/api_client.py", line 159, in search_trials
+    response = self._make_request(params)
+  File "/Users/sairampotlapalli/clinical_trails/data_ingestion/api_client.py", line 68, in _make_request
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/requests/models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://clinicaltrials.gov/api/query/study_fields?query.term=&fields=NCTId%2CBriefTitle%2COfficialTitle%2CLeadSponsorName%2CLeadSponsorClass%2CCondition%2CInterventionName%2CInterventionType%2CPhase%2CEnrollmentCount%2CStudyStartDate%2CPrimaryCompletionDate%2CStudyCompletionDate%2CStatus%2CLocationCountry%2CLocationState%2CLocationCity%2CLocationFacility%2CStudyType%2CAllocation%2CInterventionModel%2CPrimaryPurpose%2CMaskingInfo%2COutcomeMeasureDescription&pageSize=1
+2025-07-03 21:01:34,863 - etl_logger - INFO - log_etl_end:91 - ETL Job Completed: Extract Clinical Trials Data - Duration: 3.26s, Rows: 0
+2025-07-03 21:01:34,863 - etl_logger - ERROR - log_error:114 - Error in Main extraction: 404 Client Error: Not Found for url: https://clinicaltrials.gov/api/query/study_fields?query.term=&fields=NCTId%2CBriefTitle%2COfficialTitle%2CLeadSponsorName%2CLeadSponsorClass%2CCondition%2CInterventionName%2CInterventionType%2CPhase%2CEnrollmentCount%2CStudyStartDate%2CPrimaryCompletionDate%2CStudyCompletionDate%2CStatus%2CLocationCountry%2CLocationState%2CLocationCity%2CLocationFacility%2CStudyType%2CAllocation%2CInterventionModel%2CPrimaryPurpose%2CMaskingInfo%2COutcomeMeasureDescription&pageSize=1
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/data_ingestion/extract_trials.py", line 217, in main
+    df = extract_trials_data(
+        search_terms=args.search_terms,
+    ...<7 lines>...
+        save_to_file=args.save_file
+    )
+  File "/Users/sairampotlapalli/clinical_trails/utils/logging.py", line 169, in wrapper
+    result = func(*args, **kwargs)
+  File "/Users/sairampotlapalli/clinical_trails/data_ingestion/extract_trials.py", line 63, in extract_trials_data
+    for trial in api_client.search_trials(
+                 ~~~~~~~~~~~~~~~~~~~~~~~~^
+        search_terms=search_terms,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        limit=limit
+        ^^^^^^^^^^^
+    ):
+    ^
+  File "/Users/sairampotlapalli/clinical_trails/data_ingestion/api_client.py", line 159, in search_trials
+    response = self._make_request(params)
+  File "/Users/sairampotlapalli/clinical_trails/data_ingestion/api_client.py", line 68, in _make_request
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/requests/models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://clinicaltrials.gov/api/query/study_fields?query.term=&fields=NCTId%2CBriefTitle%2COfficialTitle%2CLeadSponsorName%2CLeadSponsorClass%2CCondition%2CInterventionName%2CInterventionType%2CPhase%2CEnrollmentCount%2CStudyStartDate%2CPrimaryCompletionDate%2CStudyCompletionDate%2CStatus%2CLocationCountry%2CLocationState%2CLocationCity%2CLocationFacility%2CStudyType%2CAllocation%2CInterventionModel%2CPrimaryPurpose%2CMaskingInfo%2COutcomeMeasureDescription&pageSize=1
+2025-07-03 21:01:34,866 - etl_logger - INFO - close:355 - API client session closed
+2025-07-03 21:01:34,866 - etl_logger - INFO - close:249 - Database connections closed
+2025-07-03 21:02:21,803 - etl_logger - INFO - _setup_connection:44 - Database connection established: sqlite
+2025-07-03 21:02:21,804 - etl_logger - INFO - log_etl_start:74 - ETL Job Started: Extract Clinical Trials Data
+2025-07-03 21:02:21,804 - etl_logger - INFO - extract_trials_data:56 - Starting clinical trials data extraction
+2025-07-03 21:02:21,915 - etl_logger - ERROR - log_error:114 - Error in API request: 400 Client Error: Bad Request for url: https://clinicaltrials.gov/api/v2/studies?query.term=&fields=NCTId%2CBriefTitle%2COfficialTitle%2CLeadSponsorName%2CLeadSponsorClass%2CCondition%2CInterventionName%2CInterventionType%2CPhase%2CEnrollmentCount%2CStudyStartDate%2CPrimaryCompletionDate%2CStudyCompletionDate%2CStatus%2CLocationCountry%2CLocationState%2CLocationCity%2CLocationFacility%2CStudyType%2CAllocation%2CInterventionModel%2CPrimaryPurpose%2CMaskingInfo%2COutcomeMeasureDescription&pageSize=1
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/data_ingestion/api_client.py", line 68, in _make_request
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/requests/models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: https://clinicaltrials.gov/api/v2/studies?query.term=&fields=NCTId%2CBriefTitle%2COfficialTitle%2CLeadSponsorName%2CLeadSponsorClass%2CCondition%2CInterventionName%2CInterventionType%2CPhase%2CEnrollmentCount%2CStudyStartDate%2CPrimaryCompletionDate%2CStudyCompletionDate%2CStatus%2CLocationCountry%2CLocationState%2CLocationCity%2CLocationFacility%2CStudyType%2CAllocation%2CInterventionModel%2CPrimaryPurpose%2CMaskingInfo%2COutcomeMeasureDescription&pageSize=1
+2025-07-03 21:02:22,979 - etl_logger - ERROR - log_error:114 - Error in API request: 400 Client Error: Bad Request for url: https://clinicaltrials.gov/api/v2/studies?query.term=&fields=NCTId%2CBriefTitle%2COfficialTitle%2CLeadSponsorName%2CLeadSponsorClass%2CCondition%2CInterventionName%2CInterventionType%2CPhase%2CEnrollmentCount%2CStudyStartDate%2CPrimaryCompletionDate%2CStudyCompletionDate%2CStatus%2CLocationCountry%2CLocationState%2CLocationCity%2CLocationFacility%2CStudyType%2CAllocation%2CInterventionModel%2CPrimaryPurpose%2CMaskingInfo%2COutcomeMeasureDescription&pageSize=1
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/data_ingestion/api_client.py", line 68, in _make_request
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/requests/models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: https://clinicaltrials.gov/api/v2/studies?query.term=&fields=NCTId%2CBriefTitle%2COfficialTitle%2CLeadSponsorName%2CLeadSponsorClass%2CCondition%2CInterventionName%2CInterventionType%2CPhase%2CEnrollmentCount%2CStudyStartDate%2CPrimaryCompletionDate%2CStudyCompletionDate%2CStatus%2CLocationCountry%2CLocationState%2CLocationCity%2CLocationFacility%2CStudyType%2CAllocation%2CInterventionModel%2CPrimaryPurpose%2CMaskingInfo%2COutcomeMeasureDescription&pageSize=1
+2025-07-03 21:02:25,042 - etl_logger - ERROR - log_error:114 - Error in API request: 400 Client Error: Bad Request for url: https://clinicaltrials.gov/api/v2/studies?query.term=&fields=NCTId%2CBriefTitle%2COfficialTitle%2CLeadSponsorName%2CLeadSponsorClass%2CCondition%2CInterventionName%2CInterventionType%2CPhase%2CEnrollmentCount%2CStudyStartDate%2CPrimaryCompletionDate%2CStudyCompletionDate%2CStatus%2CLocationCountry%2CLocationState%2CLocationCity%2CLocationFacility%2CStudyType%2CAllocation%2CInterventionModel%2CPrimaryPurpose%2CMaskingInfo%2COutcomeMeasureDescription&pageSize=1
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/data_ingestion/api_client.py", line 68, in _make_request
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/requests/models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: https://clinicaltrials.gov/api/v2/studies?query.term=&fields=NCTId%2CBriefTitle%2COfficialTitle%2CLeadSponsorName%2CLeadSponsorClass%2CCondition%2CInterventionName%2CInterventionType%2CPhase%2CEnrollmentCount%2CStudyStartDate%2CPrimaryCompletionDate%2CStudyCompletionDate%2CStatus%2CLocationCountry%2CLocationState%2CLocationCity%2CLocationFacility%2CStudyType%2CAllocation%2CInterventionModel%2CPrimaryPurpose%2CMaskingInfo%2COutcomeMeasureDescription&pageSize=1
+2025-07-03 21:02:25,043 - etl_logger - ERROR - log_error:114 - Error in Search trials: 400 Client Error: Bad Request for url: https://clinicaltrials.gov/api/v2/studies?query.term=&fields=NCTId%2CBriefTitle%2COfficialTitle%2CLeadSponsorName%2CLeadSponsorClass%2CCondition%2CInterventionName%2CInterventionType%2CPhase%2CEnrollmentCount%2CStudyStartDate%2CPrimaryCompletionDate%2CStudyCompletionDate%2CStatus%2CLocationCountry%2CLocationState%2CLocationCity%2CLocationFacility%2CStudyType%2CAllocation%2CInterventionModel%2CPrimaryPurpose%2CMaskingInfo%2COutcomeMeasureDescription&pageSize=1
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/data_ingestion/api_client.py", line 159, in search_trials
+    response = self._make_request(params)
+  File "/Users/sairampotlapalli/clinical_trails/data_ingestion/api_client.py", line 68, in _make_request
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/requests/models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: https://clinicaltrials.gov/api/v2/studies?query.term=&fields=NCTId%2CBriefTitle%2COfficialTitle%2CLeadSponsorName%2CLeadSponsorClass%2CCondition%2CInterventionName%2CInterventionType%2CPhase%2CEnrollmentCount%2CStudyStartDate%2CPrimaryCompletionDate%2CStudyCompletionDate%2CStatus%2CLocationCountry%2CLocationState%2CLocationCity%2CLocationFacility%2CStudyType%2CAllocation%2CInterventionModel%2CPrimaryPurpose%2CMaskingInfo%2COutcomeMeasureDescription&pageSize=1
+2025-07-03 21:02:25,043 - etl_logger - ERROR - log_error:114 - Error in Data extraction: 400 Client Error: Bad Request for url: https://clinicaltrials.gov/api/v2/studies?query.term=&fields=NCTId%2CBriefTitle%2COfficialTitle%2CLeadSponsorName%2CLeadSponsorClass%2CCondition%2CInterventionName%2CInterventionType%2CPhase%2CEnrollmentCount%2CStudyStartDate%2CPrimaryCompletionDate%2CStudyCompletionDate%2CStatus%2CLocationCountry%2CLocationState%2CLocationCity%2CLocationFacility%2CStudyType%2CAllocation%2CInterventionModel%2CPrimaryPurpose%2CMaskingInfo%2COutcomeMeasureDescription&pageSize=1
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/data_ingestion/extract_trials.py", line 63, in extract_trials_data
+    for trial in api_client.search_trials(
+                 ~~~~~~~~~~~~~~~~~~~~~~~~^
+        search_terms=search_terms,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        limit=limit
+        ^^^^^^^^^^^
+    ):
+    ^
+  File "/Users/sairampotlapalli/clinical_trails/data_ingestion/api_client.py", line 159, in search_trials
+    response = self._make_request(params)
+  File "/Users/sairampotlapalli/clinical_trails/data_ingestion/api_client.py", line 68, in _make_request
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/requests/models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: https://clinicaltrials.gov/api/v2/studies?query.term=&fields=NCTId%2CBriefTitle%2COfficialTitle%2CLeadSponsorName%2CLeadSponsorClass%2CCondition%2CInterventionName%2CInterventionType%2CPhase%2CEnrollmentCount%2CStudyStartDate%2CPrimaryCompletionDate%2CStudyCompletionDate%2CStatus%2CLocationCountry%2CLocationState%2CLocationCity%2CLocationFacility%2CStudyType%2CAllocation%2CInterventionModel%2CPrimaryPurpose%2CMaskingInfo%2COutcomeMeasureDescription&pageSize=1
+2025-07-03 21:02:25,045 - etl_logger - ERROR - log_error:114 - Error in Extract Clinical Trials Data: 400 Client Error: Bad Request for url: https://clinicaltrials.gov/api/v2/studies?query.term=&fields=NCTId%2CBriefTitle%2COfficialTitle%2CLeadSponsorName%2CLeadSponsorClass%2CCondition%2CInterventionName%2CInterventionType%2CPhase%2CEnrollmentCount%2CStudyStartDate%2CPrimaryCompletionDate%2CStudyCompletionDate%2CStatus%2CLocationCountry%2CLocationState%2CLocationCity%2CLocationFacility%2CStudyType%2CAllocation%2CInterventionModel%2CPrimaryPurpose%2CMaskingInfo%2COutcomeMeasureDescription&pageSize=1
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/utils/logging.py", line 169, in wrapper
+    result = func(*args, **kwargs)
+  File "/Users/sairampotlapalli/clinical_trails/data_ingestion/extract_trials.py", line 63, in extract_trials_data
+    for trial in api_client.search_trials(
+                 ~~~~~~~~~~~~~~~~~~~~~~~~^
+        search_terms=search_terms,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        limit=limit
+        ^^^^^^^^^^^
+    ):
+    ^
+  File "/Users/sairampotlapalli/clinical_trails/data_ingestion/api_client.py", line 159, in search_trials
+    response = self._make_request(params)
+  File "/Users/sairampotlapalli/clinical_trails/data_ingestion/api_client.py", line 68, in _make_request
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/requests/models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: https://clinicaltrials.gov/api/v2/studies?query.term=&fields=NCTId%2CBriefTitle%2COfficialTitle%2CLeadSponsorName%2CLeadSponsorClass%2CCondition%2CInterventionName%2CInterventionType%2CPhase%2CEnrollmentCount%2CStudyStartDate%2CPrimaryCompletionDate%2CStudyCompletionDate%2CStatus%2CLocationCountry%2CLocationState%2CLocationCity%2CLocationFacility%2CStudyType%2CAllocation%2CInterventionModel%2CPrimaryPurpose%2CMaskingInfo%2COutcomeMeasureDescription&pageSize=1
+2025-07-03 21:02:25,046 - etl_logger - INFO - log_etl_end:91 - ETL Job Completed: Extract Clinical Trials Data - Duration: 3.24s, Rows: 0
+2025-07-03 21:02:25,046 - etl_logger - ERROR - log_error:114 - Error in Main extraction: 400 Client Error: Bad Request for url: https://clinicaltrials.gov/api/v2/studies?query.term=&fields=NCTId%2CBriefTitle%2COfficialTitle%2CLeadSponsorName%2CLeadSponsorClass%2CCondition%2CInterventionName%2CInterventionType%2CPhase%2CEnrollmentCount%2CStudyStartDate%2CPrimaryCompletionDate%2CStudyCompletionDate%2CStatus%2CLocationCountry%2CLocationState%2CLocationCity%2CLocationFacility%2CStudyType%2CAllocation%2CInterventionModel%2CPrimaryPurpose%2CMaskingInfo%2COutcomeMeasureDescription&pageSize=1
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/data_ingestion/extract_trials.py", line 217, in main
+    df = extract_trials_data(
+        search_terms=args.search_terms,
+    ...<7 lines>...
+        save_to_file=args.save_file
+    )
+  File "/Users/sairampotlapalli/clinical_trails/utils/logging.py", line 169, in wrapper
+    result = func(*args, **kwargs)
+  File "/Users/sairampotlapalli/clinical_trails/data_ingestion/extract_trials.py", line 63, in extract_trials_data
+    for trial in api_client.search_trials(
+                 ~~~~~~~~~~~~~~~~~~~~~~~~^
+        search_terms=search_terms,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        limit=limit
+        ^^^^^^^^^^^
+    ):
+    ^
+  File "/Users/sairampotlapalli/clinical_trails/data_ingestion/api_client.py", line 159, in search_trials
+    response = self._make_request(params)
+  File "/Users/sairampotlapalli/clinical_trails/data_ingestion/api_client.py", line 68, in _make_request
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/requests/models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: https://clinicaltrials.gov/api/v2/studies?query.term=&fields=NCTId%2CBriefTitle%2COfficialTitle%2CLeadSponsorName%2CLeadSponsorClass%2CCondition%2CInterventionName%2CInterventionType%2CPhase%2CEnrollmentCount%2CStudyStartDate%2CPrimaryCompletionDate%2CStudyCompletionDate%2CStatus%2CLocationCountry%2CLocationState%2CLocationCity%2CLocationFacility%2CStudyType%2CAllocation%2CInterventionModel%2CPrimaryPurpose%2CMaskingInfo%2COutcomeMeasureDescription&pageSize=1
+2025-07-03 21:02:25,047 - etl_logger - INFO - close:355 - API client session closed
+2025-07-03 21:02:25,047 - etl_logger - INFO - close:249 - Database connections closed
+2025-07-03 21:04:42,821 - etl_logger - INFO - _setup_connection:44 - Database connection established: sqlite
+2025-07-03 21:04:42,822 - etl_logger - INFO - log_etl_start:74 - ETL Job Started: Extract Clinical Trials Data
+2025-07-03 21:04:42,822 - etl_logger - INFO - extract_trials_data:56 - Starting clinical trials data extraction
+2025-07-03 21:04:42,940 - etl_logger - INFO - search_trials:150 - Found 0 trials matching search criteria
+2025-07-03 21:04:42,940 - etl_logger - INFO - extract_trials_data:82 - Extracted 0 valid trials
+2025-07-03 21:04:42,947 - etl_logger - INFO - log_etl_end:91 - ETL Job Completed: Extract Clinical Trials Data - Duration: 0.13s, Rows: 0
+2025-07-03 21:04:42,947 - etl_logger - INFO - main:233 - Data extraction completed successfully
+2025-07-03 21:04:42,948 - etl_logger - INFO - close:342 - API client session closed
+2025-07-03 21:04:42,948 - etl_logger - INFO - close:249 - Database connections closed
+2025-07-03 21:05:14,692 - etl_logger - INFO - _setup_connection:44 - Database connection established: sqlite
+2025-07-03 21:05:14,826 - etl_logger - ERROR - log_error:114 - Error in Query execution: (sqlite3.OperationalError) no such table: warehouse.fact_trials
+[SQL: 
+        SELECT 
+            COUNT(*) as total_trials,
+            COUNT(DISTINCT sponsor_key) as unique_sponsors,
+            COUNT(DISTINCT condition_key) as unique_conditions,
+            COUNT(DISTINCT location_key) as unique_locations,
+            AVG(enrollment_count) as avg_enrollment,
+            AVG(duration_days) as avg_duration
+        FROM warehouse.fact_trials
+        ]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1963, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/sqlalchemy/engine/default.py", line 943, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: warehouse.fact_trials
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/utils/database.py", line 114, in execute_query
+    result = connection.execute(text(query))
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1415, in execute
+    return meth(
+        self,
+        distilled_parameters,
+        execution_options or NO_OPTIONS,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/sqlalchemy/sql/elements.py", line 523, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self, distilled_params, execution_options
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1637, in _execute_clauseelement
+    ret = self._execute_context(
+        dialect,
+    ...<8 lines>...
+        cache_hit=cache_hit,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1842, in _execute_context
+    return self._exec_single_context(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        dialect, context, statement, parameters
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1982, in _exec_single_context
+    self._handle_dbapi_exception(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        e, str_statement, effective_parameters, cursor, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 2351, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1963, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/sqlalchemy/engine/default.py", line 943, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: warehouse.fact_trials
+[SQL: 
+        SELECT 
+            COUNT(*) as total_trials,
+            COUNT(DISTINCT sponsor_key) as unique_sponsors,
+            COUNT(DISTINCT condition_key) as unique_conditions,
+            COUNT(DISTINCT location_key) as unique_locations,
+            AVG(enrollment_count) as avg_enrollment,
+            AVG(duration_days) as avg_duration
+        FROM warehouse.fact_trials
+        ]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-07-04 09:04:37,892 - etl_logger - INFO - _setup_connection:44 - Database connection established: sqlite
+2025-07-04 09:04:37,893 - etl_logger - INFO - log_etl_start:74 - ETL Job Started: Extract Clinical Trials Data
+2025-07-04 09:04:37,893 - etl_logger - INFO - extract_trials_data:56 - Starting clinical trials data extraction
+2025-07-04 09:04:38,176 - etl_logger - INFO - search_trials:150 - Found 0 trials matching search criteria
+2025-07-04 09:04:38,176 - etl_logger - INFO - extract_trials_data:82 - Extracted 0 valid trials
+2025-07-04 09:04:38,182 - etl_logger - INFO - log_etl_end:91 - ETL Job Completed: Extract Clinical Trials Data - Duration: 0.29s, Rows: 0
+2025-07-04 09:04:38,182 - etl_logger - INFO - main:233 - Data extraction completed successfully
+2025-07-04 09:04:38,183 - etl_logger - INFO - close:342 - API client session closed
+2025-07-04 09:04:38,183 - etl_logger - INFO - close:249 - Database connections closed
+2025-07-04 09:05:20,522 - etl_logger - INFO - _setup_connection:44 - Database connection established: sqlite
+2025-07-04 09:05:27,593 - etl_logger - INFO - _setup_connection:44 - Database connection established: sqlite
+2025-07-04 09:05:27,594 - etl_logger - INFO - log_etl_start:74 - ETL Job Started: Extract Clinical Trials Data
+2025-07-04 09:05:27,595 - etl_logger - INFO - extract_trials_data:56 - Starting clinical trials data extraction
+2025-07-04 09:05:27,725 - etl_logger - INFO - search_trials:150 - Found 0 trials matching search criteria
+2025-07-04 09:05:27,725 - etl_logger - INFO - extract_trials_data:82 - Extracted 0 valid trials
+2025-07-04 09:05:27,731 - etl_logger - INFO - log_etl_end:91 - ETL Job Completed: Extract Clinical Trials Data - Duration: 0.14s, Rows: 0
+2025-07-04 09:05:27,732 - etl_logger - INFO - main:233 - Data extraction completed successfully
+2025-07-04 09:05:27,732 - etl_logger - INFO - close:342 - API client session closed
+2025-07-04 09:05:27,732 - etl_logger - INFO - close:249 - Database connections closed
+2025-07-04 09:05:53,227 - etl_logger - INFO - _setup_connection:44 - Database connection established: sqlite
+2025-07-04 09:05:53,230 - etl_logger - INFO - log_etl_start:74 - ETL Job Started: Extract Clinical Trials Data
+2025-07-04 09:05:53,230 - etl_logger - INFO - extract_trials_data:56 - Starting clinical trials data extraction
+2025-07-04 09:05:53,364 - etl_logger - INFO - search_trials:150 - Found 0 trials matching search criteria
+2025-07-04 09:05:53,364 - etl_logger - INFO - extract_trials_data:82 - Extracted 0 valid trials
+2025-07-04 09:05:53,369 - etl_logger - INFO - log_etl_end:91 - ETL Job Completed: Extract Clinical Trials Data - Duration: 0.14s, Rows: 0
+2025-07-04 09:05:53,369 - etl_logger - INFO - main:233 - Data extraction completed successfully
+2025-07-04 09:05:53,369 - etl_logger - INFO - close:342 - API client session closed
+2025-07-04 09:05:53,369 - etl_logger - INFO - close:249 - Database connections closed
+2025-07-04 09:07:13,224 - etl_logger - INFO - _setup_connection:44 - Database connection established: sqlite
+2025-07-04 09:07:13,225 - etl_logger - INFO - log_etl_start:74 - ETL Job Started: Extract Clinical Trials Data
+2025-07-04 09:07:13,225 - etl_logger - INFO - extract_trials_data:56 - Starting clinical trials data extraction
+2025-07-04 09:07:13,359 - etl_logger - INFO - search_trials:151 - Found 0 trials matching search criteria
+2025-07-04 09:07:13,359 - etl_logger - INFO - extract_trials_data:82 - Extracted 0 valid trials
+2025-07-04 09:07:13,364 - etl_logger - INFO - log_etl_end:91 - ETL Job Completed: Extract Clinical Trials Data - Duration: 0.14s, Rows: 0
+2025-07-04 09:07:13,364 - etl_logger - INFO - main:233 - Data extraction completed successfully
+2025-07-04 09:07:13,365 - etl_logger - INFO - close:343 - API client session closed
+2025-07-04 09:07:13,365 - etl_logger - INFO - close:249 - Database connections closed
+2025-07-04 09:07:43,731 - etl_logger - INFO - _setup_connection:44 - Database connection established: sqlite
+2025-07-04 09:07:43,732 - etl_logger - INFO - log_etl_start:74 - ETL Job Started: Extract Clinical Trials Data
+2025-07-04 09:07:43,732 - etl_logger - INFO - extract_trials_data:56 - Starting clinical trials data extraction
+2025-07-04 09:07:43,732 - etl_logger - DEBUG - _make_request:63 - API Request: https://clinicaltrials.gov/api/v2/studies | Params: {'query.term': 'cancer', 'pageSize': 1}
+2025-07-04 09:07:43,901 - etl_logger - INFO - search_trials:151 - Found 0 trials matching search criteria
+2025-07-04 09:07:43,901 - etl_logger - INFO - extract_trials_data:82 - Extracted 0 valid trials
+2025-07-04 09:07:43,906 - etl_logger - INFO - log_etl_end:91 - ETL Job Completed: Extract Clinical Trials Data - Duration: 0.17s, Rows: 0
+2025-07-04 09:07:43,906 - etl_logger - INFO - main:233 - Data extraction completed successfully
+2025-07-04 09:07:43,907 - etl_logger - INFO - close:343 - API client session closed
+2025-07-04 09:07:43,907 - etl_logger - INFO - close:249 - Database connections closed
+2025-07-04 09:09:10,439 - etl_logger - INFO - _setup_connection:44 - Database connection established: sqlite
+2025-07-04 09:09:10,440 - etl_logger - INFO - log_etl_start:74 - ETL Job Started: Extract Clinical Trials Data
+2025-07-04 09:09:10,440 - etl_logger - INFO - extract_trials_data:56 - Starting clinical trials data extraction
+2025-07-04 09:09:10,441 - etl_logger - DEBUG - _make_request:63 - API Request: https://clinicaltrials.gov/api/v2/studies | Params: {'query.term': 'cancer', 'pageSize': 10}
+2025-07-04 09:09:10,670 - etl_logger - ERROR - log_error:114 - Error in Data extraction: 'is_valid'
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/data_ingestion/extract_trials.py", line 77, in extract_trials_data
+    if validation['is_valid']:
+       ~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'is_valid'
+2025-07-04 09:09:10,672 - etl_logger - ERROR - log_error:114 - Error in Extract Clinical Trials Data: 'is_valid'
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/utils/logging.py", line 169, in wrapper
+    result = func(*args, **kwargs)
+  File "/Users/sairampotlapalli/clinical_trails/data_ingestion/extract_trials.py", line 77, in extract_trials_data
+    if validation['is_valid']:
+       ~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'is_valid'
+2025-07-04 09:09:10,672 - etl_logger - INFO - log_etl_end:91 - ETL Job Completed: Extract Clinical Trials Data - Duration: 0.23s, Rows: 0
+2025-07-04 09:09:10,673 - etl_logger - ERROR - log_error:114 - Error in Main extraction: 'is_valid'
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/data_ingestion/extract_trials.py", line 217, in main
+    df = extract_trials_data(
+        search_terms=args.search_terms,
+    ...<7 lines>...
+        save_to_file=args.save_file
+    )
+  File "/Users/sairampotlapalli/clinical_trails/utils/logging.py", line 169, in wrapper
+    result = func(*args, **kwargs)
+  File "/Users/sairampotlapalli/clinical_trails/data_ingestion/extract_trials.py", line 77, in extract_trials_data
+    if validation['is_valid']:
+       ~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'is_valid'
+2025-07-04 09:09:10,673 - etl_logger - INFO - close:295 - API client session closed
+2025-07-04 09:09:10,674 - etl_logger - INFO - close:249 - Database connections closed
+2025-07-04 09:09:39,223 - etl_logger - INFO - _setup_connection:44 - Database connection established: sqlite
+2025-07-04 09:09:39,224 - etl_logger - INFO - log_etl_start:74 - ETL Job Started: Extract Clinical Trials Data
+2025-07-04 09:09:39,224 - etl_logger - INFO - extract_trials_data:56 - Starting clinical trials data extraction
+2025-07-04 09:09:39,224 - etl_logger - DEBUG - _make_request:63 - API Request: https://clinicaltrials.gov/api/v2/studies | Params: {'query.term': 'cancer', 'pageSize': 10}
+2025-07-04 09:09:39,434 - etl_logger - INFO - extract_trials_data:82 - Extracted 10 valid trials
+2025-07-04 09:09:39,440 - etl_logger - INFO - log_etl_end:91 - ETL Job Completed: Extract Clinical Trials Data - Duration: 0.22s, Rows: 10
+2025-07-04 09:09:39,440 - etl_logger - INFO - main:233 - Data extraction completed successfully
+2025-07-04 09:09:39,441 - etl_logger - INFO - close:295 - API client session closed
+2025-07-04 09:09:39,441 - etl_logger - INFO - close:249 - Database connections closed
+2025-07-04 09:10:21,166 - etl_logger - INFO - _setup_connection:44 - Database connection established: sqlite
+2025-07-04 09:10:21,302 - etl_logger - ERROR - log_error:114 - Error in Query execution: (sqlite3.OperationalError) no such table: warehouse.fact_trials
+[SQL: 
+        SELECT 
+            COUNT(*) as total_trials,
+            COUNT(DISTINCT sponsor_key) as unique_sponsors,
+            COUNT(DISTINCT condition_key) as unique_conditions,
+            COUNT(DISTINCT location_key) as unique_locations,
+            AVG(enrollment_count) as avg_enrollment,
+            AVG(duration_days) as avg_duration
+        FROM warehouse.fact_trials
+        ]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1963, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/sqlalchemy/engine/default.py", line 943, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: warehouse.fact_trials
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/utils/database.py", line 114, in execute_query
+    result = connection.execute(text(query))
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1415, in execute
+    return meth(
+        self,
+        distilled_parameters,
+        execution_options or NO_OPTIONS,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/sqlalchemy/sql/elements.py", line 523, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self, distilled_params, execution_options
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1637, in _execute_clauseelement
+    ret = self._execute_context(
+        dialect,
+    ...<8 lines>...
+        cache_hit=cache_hit,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1842, in _execute_context
+    return self._exec_single_context(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        dialect, context, statement, parameters
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1982, in _exec_single_context
+    self._handle_dbapi_exception(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        e, str_statement, effective_parameters, cursor, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 2351, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1963, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/sqlalchemy/engine/default.py", line 943, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: warehouse.fact_trials
+[SQL: 
+        SELECT 
+            COUNT(*) as total_trials,
+            COUNT(DISTINCT sponsor_key) as unique_sponsors,
+            COUNT(DISTINCT condition_key) as unique_conditions,
+            COUNT(DISTINCT location_key) as unique_locations,
+            AVG(enrollment_count) as avg_enrollment,
+            AVG(duration_days) as avg_duration
+        FROM warehouse.fact_trials
+        ]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-07-04 09:11:35,359 - etl_logger - INFO - log_performance:129 - Performance: query_execution - 0.000s
+2025-07-04 09:11:35,374 - etl_logger - INFO - log_performance:129 - Performance: query_execution - 0.000s
+2025-07-04 09:11:35,375 - etl_logger - INFO - log_performance:129 - Performance: query_execution - 0.000s
+2025-07-04 09:11:35,376 - etl_logger - INFO - log_performance:129 - Performance: query_execution - 0.000s
+2025-07-04 09:11:35,377 - etl_logger - INFO - log_performance:129 - Performance: query_execution - 0.000s
+2025-07-04 09:11:45,930 - etl_logger - ERROR - log_error:114 - Error in Query execution: (sqlite3.OperationalError) no such table: warehouse.fact_trials
+[SQL: 
+            SELECT 
+                s.sponsor_name,
+                COUNT(*) as trial_count,
+                AVG(t.enrollment_count) as avg_enrollment,
+                AVG(t.duration_days) as avg_duration_days
+            FROM warehouse.fact_trials t
+            JOIN warehouse.dim_sponsor s ON t.sponsor_key = s.sponsor_key
+            JOIN warehouse.dim_dates d ON t.start_date_key = d.date_key
+            WHERE d.year = 2023
+            GROUP BY s.sponsor_name
+            ORDER BY trial_count DESC
+            LIMIT 10;
+            ]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1963, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/sqlalchemy/engine/default.py", line 943, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: warehouse.fact_trials
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/utils/database.py", line 114, in execute_query
+    result = connection.execute(text(query))
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1415, in execute
+    return meth(
+        self,
+        distilled_parameters,
+        execution_options or NO_OPTIONS,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/sqlalchemy/sql/elements.py", line 523, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self, distilled_params, execution_options
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1637, in _execute_clauseelement
+    ret = self._execute_context(
+        dialect,
+    ...<8 lines>...
+        cache_hit=cache_hit,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1842, in _execute_context
+    return self._exec_single_context(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        dialect, context, statement, parameters
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1982, in _exec_single_context
+    self._handle_dbapi_exception(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        e, str_statement, effective_parameters, cursor, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 2351, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1963, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/sqlalchemy/engine/default.py", line 943, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: warehouse.fact_trials
+[SQL: 
+            SELECT 
+                s.sponsor_name,
+                COUNT(*) as trial_count,
+                AVG(t.enrollment_count) as avg_enrollment,
+                AVG(t.duration_days) as avg_duration_days
+            FROM warehouse.fact_trials t
+            JOIN warehouse.dim_sponsor s ON t.sponsor_key = s.sponsor_key
+            JOIN warehouse.dim_dates d ON t.start_date_key = d.date_key
+            WHERE d.year = 2023
+            GROUP BY s.sponsor_name
+            ORDER BY trial_count DESC
+            LIMIT 10;
+            ]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-07-04 09:12:01,387 - etl_logger - ERROR - log_error:114 - Error in Query execution: (sqlite3.OperationalError) no such table: warehouse.fact_trials
+[SQL: 
+            SELECT 
+                d.year,
+                t.phase,
+                COUNT(*) as trial_count,
+                AVG(t.enrollment_count) as avg_enrollment,
+                SUM(t.enrollment_count) as total_enrollment,
+                COUNT(CASE WHEN t.enrollment_count > 1000 THEN 1 END) as large_trials,
+                COUNT(CASE WHEN t.enrollment_count <= 100 THEN 1 END) as small_trials
+            FROM warehouse.fact_trials t
+            JOIN warehouse.dim_dates d ON t.start_date_key = d.date_key
+            WHERE t.enrollment_count IS NOT NULL
+              AND t.phase IS NOT NULL
+              AND d.year >= 2020
+            GROUP BY d.year, t.phase
+            ORDER BY d.year DESC, trial_count DESC;
+            ]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1963, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/sqlalchemy/engine/default.py", line 943, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: warehouse.fact_trials
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/utils/database.py", line 114, in execute_query
+    result = connection.execute(text(query))
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1415, in execute
+    return meth(
+        self,
+        distilled_parameters,
+        execution_options or NO_OPTIONS,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/sqlalchemy/sql/elements.py", line 523, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self, distilled_params, execution_options
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1637, in _execute_clauseelement
+    ret = self._execute_context(
+        dialect,
+    ...<8 lines>...
+        cache_hit=cache_hit,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1842, in _execute_context
+    return self._exec_single_context(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        dialect, context, statement, parameters
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1982, in _exec_single_context
+    self._handle_dbapi_exception(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        e, str_statement, effective_parameters, cursor, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 2351, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1963, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/sqlalchemy/engine/default.py", line 943, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: warehouse.fact_trials
+[SQL: 
+            SELECT 
+                d.year,
+                t.phase,
+                COUNT(*) as trial_count,
+                AVG(t.enrollment_count) as avg_enrollment,
+                SUM(t.enrollment_count) as total_enrollment,
+                COUNT(CASE WHEN t.enrollment_count > 1000 THEN 1 END) as large_trials,
+                COUNT(CASE WHEN t.enrollment_count <= 100 THEN 1 END) as small_trials
+            FROM warehouse.fact_trials t
+            JOIN warehouse.dim_dates d ON t.start_date_key = d.date_key
+            WHERE t.enrollment_count IS NOT NULL
+              AND t.phase IS NOT NULL
+              AND d.year >= 2020
+            GROUP BY d.year, t.phase
+            ORDER BY d.year DESC, trial_count DESC;
+            ]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-07-04 09:13:30,405 - etl_logger - INFO - log_performance:129 - Performance: query_execution - 0.000s
+2025-07-04 09:13:33,993 - etl_logger - INFO - log_performance:129 - Performance: query_execution - 0.000s
+2025-07-04 09:13:36,698 - etl_logger - INFO - log_performance:129 - Performance: query_execution - 0.000s
+2025-07-04 09:13:39,299 - etl_logger - INFO - log_performance:129 - Performance: query_execution - 0.000s
+2025-07-04 09:13:42,651 - etl_logger - INFO - log_performance:129 - Performance: query_execution - 0.000s
+2025-07-04 09:13:44,905 - etl_logger - INFO - log_performance:129 - Performance: query_execution - 0.000s
+2025-07-04 09:13:47,740 - etl_logger - INFO - log_performance:129 - Performance: query_execution - 0.000s
+2025-07-04 09:13:50,303 - etl_logger - INFO - log_performance:129 - Performance: query_execution - 0.000s
+2025-07-04 09:13:53,178 - etl_logger - INFO - log_performance:129 - Performance: query_execution - 0.000s
+2025-07-04 09:13:57,353 - etl_logger - INFO - log_performance:129 - Performance: query_execution - 0.000s
+2025-07-04 09:13:59,905 - etl_logger - INFO - log_performance:129 - Performance: query_execution - 0.000s
+2025-07-04 09:20:19,781 - etl_logger - INFO - _setup_connection:44 - Database connection established: sqlite
+2025-07-04 09:20:19,782 - etl_logger - INFO - log_etl_start:74 - ETL Job Started: Extract Clinical Trials Data
+2025-07-04 09:20:19,782 - etl_logger - INFO - extract_trials_data:56 - Starting clinical trials data extraction
+2025-07-04 09:20:19,782 - etl_logger - DEBUG - _make_request:63 - API Request: https://clinicaltrials.gov/api/v2/studies | Params: {'query.term': 'cancer', 'pageSize': 1000}
+2025-07-04 09:20:20,887 - etl_logger - INFO - extract_trials_data:82 - Extracted 1000 valid trials
+2025-07-04 09:20:20,898 - etl_logger - INFO - log_etl_end:91 - ETL Job Completed: Extract Clinical Trials Data - Duration: 1.12s, Rows: 1,000
+2025-07-04 09:20:20,898 - etl_logger - INFO - main:233 - Data extraction completed successfully
+2025-07-04 09:20:20,898 - etl_logger - INFO - close:295 - API client session closed
+2025-07-04 09:20:20,898 - etl_logger - INFO - close:249 - Database connections closed
+2025-07-04 09:21:06,290 - etl_logger - INFO - _setup_connection:44 - Database connection established: sqlite
+2025-07-04 09:21:06,291 - etl_logger - INFO - log_etl_start:74 - ETL Job Started: Extract Clinical Trials Data
+2025-07-04 09:21:06,291 - etl_logger - INFO - extract_trials_data:56 - Starting clinical trials data extraction
+2025-07-04 09:21:06,291 - etl_logger - DEBUG - _make_request:63 - API Request: https://clinicaltrials.gov/api/v2/studies | Params: {'query.term': 'cancer', 'pageSize': 1000}
+2025-07-04 09:21:07,183 - etl_logger - INFO - extract_trials_data:82 - Extracted 1000 valid trials
+2025-07-04 09:21:07,194 - etl_logger - INFO - log_etl_end:91 - ETL Job Completed: Extract Clinical Trials Data - Duration: 0.90s, Rows: 1,000
+2025-07-04 09:21:07,194 - etl_logger - INFO - main:233 - Data extraction completed successfully
+2025-07-04 09:21:07,195 - etl_logger - INFO - close:295 - API client session closed
+2025-07-04 09:21:07,195 - etl_logger - INFO - close:249 - Database connections closed
+2025-07-04 09:26:29,355 - etl_logger - INFO - _setup_connection:44 - Database connection established: sqlite
+2025-07-04 09:26:29,356 - etl_logger - INFO - log_etl_start:74 - ETL Job Started: Extract Clinical Trials Data
+2025-07-04 09:26:29,356 - etl_logger - INFO - extract_trials_data:56 - Starting clinical trials data extraction
+2025-07-04 09:26:29,356 - etl_logger - DEBUG - _make_request:63 - API Request: https://clinicaltrials.gov/api/v2/studies | Params: {'query.term': 'cancer', 'pageSize': 1000}
+2025-07-04 09:26:30,280 - etl_logger - INFO - extract_trials_data:82 - Extracted 1000 valid trials
+2025-07-04 09:26:30,291 - etl_logger - INFO - log_etl_end:91 - ETL Job Completed: Extract Clinical Trials Data - Duration: 0.94s, Rows: 1,000
+2025-07-04 09:26:30,291 - etl_logger - INFO - main:233 - Data extraction completed successfully
+2025-07-04 09:26:30,292 - etl_logger - INFO - close:295 - API client session closed
+2025-07-04 09:26:30,292 - etl_logger - INFO - close:249 - Database connections closed
+2025-07-04 09:29:43,172 - etl_logger - INFO - _setup_connection:44 - Database connection established: sqlite
+2025-07-04 09:29:43,174 - etl_logger - INFO - log_etl_start:74 - ETL Job Started: Extract Clinical Trials Data
+2025-07-04 09:29:43,174 - etl_logger - INFO - extract_trials_data:56 - Starting clinical trials data extraction
+2025-07-04 09:29:43,174 - etl_logger - DEBUG - _make_request:63 - API Request: https://clinicaltrials.gov/api/v2/studies | Params: {'query.term': 'cancer', 'pageSize': 5}
+2025-07-04 09:29:43,346 - etl_logger - INFO - extract_trials_data:82 - Extracted 5 valid trials
+2025-07-04 09:29:43,351 - etl_logger - INFO - log_etl_end:91 - ETL Job Completed: Extract Clinical Trials Data - Duration: 0.18s, Rows: 5
+2025-07-04 09:29:43,352 - etl_logger - INFO - log_etl_start:74 - ETL Job Started: Load Raw Trials Data
+2025-07-04 09:29:43,352 - etl_logger - INFO - load_raw_data:138 - Loading raw trial data to database
+2025-07-04 09:29:43,357 - etl_logger - INFO - log_data_quality:99 - Data Quality Report - Table: raw_trials
+2025-07-04 09:29:43,376 - etl_logger - INFO - log_performance:129 - Performance: dataframe_load - 0.018s
+2025-07-04 09:29:43,376 - etl_logger - INFO - load_dataframe:170 - DataFrame loaded to raw_trials: 5 rows
+2025-07-04 09:29:43,377 - etl_logger - INFO - create_index:226 - Index created: idx_raw_trials_NCTId on raw_trials.NCTId
+2025-07-04 09:29:43,377 - etl_logger - INFO - create_index:226 - Index created: idx_raw_trials_LeadSponsorName on raw_trials.LeadSponsorName
+2025-07-04 09:29:43,378 - etl_logger - INFO - create_index:226 - Index created: idx_raw_trials_Condition on raw_trials.Condition
+2025-07-04 09:29:43,378 - etl_logger - INFO - load_raw_data:162 - Successfully loaded 5 trials to raw_trials table
+2025-07-04 09:29:43,378 - etl_logger - INFO - log_etl_end:91 - ETL Job Completed: Load Raw Trials Data - Duration: 0.03s, Rows: 0
+2025-07-04 09:29:43,378 - etl_logger - INFO - main:233 - Data extraction completed successfully
+2025-07-04 09:29:43,378 - etl_logger - INFO - close:295 - API client session closed
+2025-07-04 09:29:43,379 - etl_logger - INFO - close:249 - Database connections closed
+2025-07-04 09:32:57,616 - etl_logger - INFO - log_performance:129 - Performance: query_execution - 0.000s
+2025-07-04 09:33:00,941 - etl_logger - INFO - log_performance:129 - Performance: query_execution - 0.000s
+2025-07-04 09:45:17,896 - etl_logger - INFO - _setup_connection:44 - Database connection established: sqlite
+2025-07-04 09:45:17,897 - etl_logger - INFO - log_etl_start:74 - ETL Job Started: Extract Clinical Trials Data
+2025-07-04 09:45:17,897 - etl_logger - INFO - extract_trials_data:56 - Starting clinical trials data extraction
+2025-07-04 09:45:17,897 - etl_logger - DEBUG - _make_request:63 - API Request: https://clinicaltrials.gov/api/v2/studies | Params: {'query.term': 'cancer', 'pageSize': 5}
+2025-07-04 09:45:18,084 - etl_logger - INFO - extract_trials_data:82 - Extracted 5 valid trials
+2025-07-04 09:45:18,094 - etl_logger - INFO - log_etl_end:91 - ETL Job Completed: Extract Clinical Trials Data - Duration: 0.20s, Rows: 5
+2025-07-04 09:45:18,094 - etl_logger - INFO - log_etl_start:74 - ETL Job Started: Load Raw Trials Data
+2025-07-04 09:45:18,095 - etl_logger - INFO - load_raw_data:138 - Loading raw trial data to database
+2025-07-04 09:45:18,101 - etl_logger - INFO - log_data_quality:99 - Data Quality Report - Table: raw_trials
+2025-07-04 09:45:18,121 - etl_logger - INFO - log_performance:129 - Performance: dataframe_load - 0.019s
+2025-07-04 09:45:18,121 - etl_logger - INFO - load_dataframe:170 - DataFrame loaded to raw_trials: 5 rows
+2025-07-04 09:45:18,122 - etl_logger - INFO - create_index:226 - Index created: idx_raw_trials_NCTId on raw_trials.NCTId
+2025-07-04 09:45:18,123 - etl_logger - INFO - create_index:226 - Index created: idx_raw_trials_LeadSponsorName on raw_trials.LeadSponsorName
+2025-07-04 09:45:18,123 - etl_logger - INFO - create_index:226 - Index created: idx_raw_trials_Condition on raw_trials.Condition
+2025-07-04 09:45:18,123 - etl_logger - INFO - load_raw_data:162 - Successfully loaded 5 trials to raw_trials table
+2025-07-04 09:45:18,124 - etl_logger - INFO - log_etl_end:91 - ETL Job Completed: Load Raw Trials Data - Duration: 0.03s, Rows: 0
+2025-07-04 09:45:18,124 - etl_logger - INFO - main:233 - Data extraction completed successfully
+2025-07-04 09:45:18,124 - etl_logger - INFO - close:295 - API client session closed
+2025-07-04 09:45:18,124 - etl_logger - INFO - close:249 - Database connections closed
+2025-07-04 09:45:50,824 - etl_logger - INFO - _setup_connection:44 - Database connection established: sqlite
+2025-07-04 09:45:50,825 - etl_logger - INFO - log_etl_start:74 - ETL Job Started: Extract Clinical Trials Data
+2025-07-04 09:45:50,825 - etl_logger - INFO - extract_trials_data:56 - Starting clinical trials data extraction
+2025-07-04 09:45:50,825 - etl_logger - DEBUG - _make_request:63 - API Request: https://clinicaltrials.gov/api/v2/studies | Params: {'query.term': 'cancer', 'pageSize': 1000}
+2025-07-04 09:45:51,830 - etl_logger - DEBUG - _make_request:63 - API Request: https://clinicaltrials.gov/api/v2/studies | Params: {'query.term': 'cancer', 'pageSize': 1000, 'pageToken': 'NF0g5JGAkvUp'}
+2025-07-04 09:45:52,572 - etl_logger - INFO - extract_trials_data:82 - Extracted 2000 valid trials
+2025-07-04 09:45:52,585 - etl_logger - INFO - log_etl_end:91 - ETL Job Completed: Extract Clinical Trials Data - Duration: 1.76s, Rows: 2,000
+2025-07-04 09:45:52,585 - etl_logger - INFO - log_etl_start:74 - ETL Job Started: Load Raw Trials Data
+2025-07-04 09:45:52,585 - etl_logger - INFO - load_raw_data:138 - Loading raw trial data to database
+2025-07-04 09:45:52,602 - etl_logger - INFO - log_data_quality:99 - Data Quality Report - Table: raw_trials
+2025-07-04 09:45:53,232 - etl_logger - INFO - log_performance:129 - Performance: dataframe_load - 0.628s
+2025-07-04 09:45:53,232 - etl_logger - INFO - load_dataframe:170 - DataFrame loaded to raw_trials: 2,000 rows
+2025-07-04 09:45:53,237 - etl_logger - INFO - create_index:226 - Index created: idx_raw_trials_NCTId on raw_trials.NCTId
+2025-07-04 09:45:53,239 - etl_logger - INFO - create_index:226 - Index created: idx_raw_trials_LeadSponsorName on raw_trials.LeadSponsorName
+2025-07-04 09:45:53,242 - etl_logger - INFO - create_index:226 - Index created: idx_raw_trials_Condition on raw_trials.Condition
+2025-07-04 09:45:53,242 - etl_logger - INFO - load_raw_data:162 - Successfully loaded 2000 trials to raw_trials table
+2025-07-04 09:45:53,243 - etl_logger - INFO - log_etl_end:91 - ETL Job Completed: Load Raw Trials Data - Duration: 0.66s, Rows: 0
+2025-07-04 09:45:53,243 - etl_logger - INFO - main:233 - Data extraction completed successfully
+2025-07-04 09:45:53,243 - etl_logger - INFO - close:295 - API client session closed
+2025-07-04 09:45:53,246 - etl_logger - INFO - close:249 - Database connections closed
+2025-07-04 09:50:37,116 - etl_logger - INFO - _setup_connection:44 - Database connection established: sqlite
+2025-07-04 09:50:37,261 - etl_logger - INFO - log_performance:129 - Performance: query_execution - 0.000s
+2025-07-04 09:50:37,266 - etl_logger - INFO - log_performance:129 - Performance: query_execution - 0.000s
+2025-07-04 09:50:37,272 - etl_logger - INFO - log_performance:129 - Performance: query_execution - 0.000s
+2025-07-04 09:50:37,289 - etl_logger - INFO - log_performance:129 - Performance: query_execution - 0.000s
+2025-07-04 09:50:37,293 - etl_logger - INFO - log_performance:129 - Performance: query_execution - 0.000s
+2025-07-04 10:20:19,247 - etl_logger - INFO - log_performance:129 - Performance: query_execution - 0.000s
+2025-07-04 10:20:19,255 - etl_logger - INFO - log_performance:129 - Performance: query_execution - 0.000s
+2025-07-04 10:20:19,264 - etl_logger - INFO - log_performance:129 - Performance: query_execution - 0.000s
+2025-07-04 10:20:19,285 - etl_logger - INFO - log_performance:129 - Performance: query_execution - 0.000s
+2025-07-04 10:20:19,307 - etl_logger - INFO - log_performance:129 - Performance: query_execution - 0.000s
+2025-07-04 10:41:43,571 - etl_logger - INFO - log_performance:129 - Performance: query_execution - 0.000s
+2025-07-04 10:41:51,895 - etl_logger - INFO - log_performance:129 - Performance: query_execution - 0.000s
+2025-07-04 10:41:55,384 - etl_logger - INFO - log_performance:129 - Performance: query_execution - 0.000s
+2025-07-04 10:41:58,081 - etl_logger - INFO - log_performance:129 - Performance: query_execution - 0.000s
+2025-07-04 10:42:16,644 - etl_logger - INFO - log_performance:129 - Performance: query_execution - 0.000s
+2025-07-04 10:55:47,676 - etl_logger - INFO - _setup_connection:44 - Database connection established: sqlite
+2025-07-04 10:55:52,432 - etl_logger - INFO - _setup_connection:44 - Database connection established: sqlite
+2025-07-04 10:56:26,980 - etl_logger - INFO - _setup_connection:44 - Database connection established: sqlite
+2025-07-04 10:56:26,981 - etl_logger - INFO - log_etl_start:74 - ETL Job Started: Extract Clinical Trials Data
+2025-07-04 10:56:26,981 - etl_logger - INFO - extract_trials_data:56 - Starting clinical trials data extraction
+2025-07-04 10:56:26,981 - etl_logger - DEBUG - _make_request:63 - API Request: https://clinicaltrials.gov/api/v2/studies | Params: {'query.term': '', 'pageSize': 1000}
+2025-07-04 10:56:27,986 - etl_logger - DEBUG - _make_request:63 - API Request: https://clinicaltrials.gov/api/v2/studies | Params: {'query.term': '', 'pageSize': 1000, 'pageToken': 'KV156peDk_Yg'}
+2025-07-04 10:56:28,992 - etl_logger - DEBUG - _make_request:63 - API Request: https://clinicaltrials.gov/api/v2/studies | Params: {'query.term': '', 'pageSize': 1000, 'pageToken': 'KV155puPlfYg'}
+2025-07-04 10:56:29,997 - etl_logger - DEBUG - _make_request:63 - API Request: https://clinicaltrials.gov/api/v2/studies | Params: {'query.term': '', 'pageSize': 1000, 'pageToken': 'KV146puOlfkt'}
+2025-07-04 10:56:31,002 - etl_logger - DEBUG - _make_request:63 - API Request: https://clinicaltrials.gov/api/v2/studies | Params: {'query.term': '', 'pageSize': 1000, 'pageToken': 'KV177peHkfkt'}
+2025-07-04 10:56:31,387 - etl_logger - INFO - extract_trials_data:82 - Extracted 5000 valid trials
+2025-07-04 10:56:31,406 - etl_logger - INFO - log_etl_end:91 - ETL Job Completed: Extract Clinical Trials Data - Duration: 4.42s, Rows: 5,000
+2025-07-04 10:56:31,406 - etl_logger - INFO - main:233 - Data extraction completed successfully
+2025-07-04 10:56:31,406 - etl_logger - INFO - close:295 - API client session closed
+2025-07-04 10:56:31,407 - etl_logger - INFO - close:249 - Database connections closed
+2025-07-04 10:56:44,594 - etl_logger - INFO - _setup_connection:44 - Database connection established: sqlite
+2025-07-04 10:56:44,597 - etl_logger - INFO - log_etl_start:74 - ETL Job Started: Transform Raw Trials Data
+2025-07-04 10:56:44,597 - etl_logger - INFO - transform_raw_trials:36 - Starting raw trials transformation
+2025-07-04 10:56:44,636 - etl_logger - INFO - log_performance:129 - Performance: query_execution - 0.000s
+2025-07-04 10:56:44,637 - etl_logger - INFO - transform_raw_trials:51 - Loaded 2000 raw trials for transformation
+2025-07-04 10:56:44,637 - etl_logger - INFO - apply_transformations:81 - Applying data transformations
+2025-07-04 10:56:44,637 - etl_logger - INFO - clean_text_fields:115 - Cleaning text fields
+2025-07-04 10:56:44,637 - etl_logger - INFO - parse_date_fields:133 - Parsing date fields
+2025-07-04 10:56:44,637 - etl_logger - INFO - process_location_data:149 - Processing location data
+2025-07-04 10:56:44,669 - etl_logger - ERROR - log_error:114 - Error in Raw trials transformation: 'location_country'
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'location_country'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 54, in transform_raw_trials
+    transformed_df = apply_transformations(raw_df)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 93, in apply_transformations
+    transformed = process_location_data(transformed)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 162, in process_location_data
+    df['location_region'] = df['location_country'].apply(categorize_region)
+                            ~~^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/frame.py", line 4107, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'location_country'
+2025-07-04 10:56:44,674 - etl_logger - ERROR - log_error:114 - Error in Transform Raw Trials Data: 'location_country'
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'location_country'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/utils/logging.py", line 169, in wrapper
+    result = func(*args, **kwargs)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 54, in transform_raw_trials
+    transformed_df = apply_transformations(raw_df)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 93, in apply_transformations
+    transformed = process_location_data(transformed)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 162, in process_location_data
+    df['location_region'] = df['location_country'].apply(categorize_region)
+                            ~~^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/frame.py", line 4107, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'location_country'
+2025-07-04 10:56:44,675 - etl_logger - INFO - log_etl_end:91 - ETL Job Completed: Transform Raw Trials Data - Duration: 0.08s, Rows: 0
+2025-07-04 10:56:44,675 - etl_logger - ERROR - log_error:114 - Error in Main transformation: 'location_country'
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'location_country'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 405, in main
+    transformed_df = transform_raw_trials()
+  File "/Users/sairampotlapalli/clinical_trails/utils/logging.py", line 169, in wrapper
+    result = func(*args, **kwargs)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 54, in transform_raw_trials
+    transformed_df = apply_transformations(raw_df)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 93, in apply_transformations
+    transformed = process_location_data(transformed)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 162, in process_location_data
+    df['location_region'] = df['location_country'].apply(categorize_region)
+                            ~~^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/frame.py", line 4107, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'location_country'
+2025-07-04 10:56:44,677 - etl_logger - INFO - close:249 - Database connections closed
+2025-07-04 10:59:24,525 - etl_logger - INFO - _setup_connection:44 - Database connection established: sqlite
+2025-07-04 10:59:24,529 - etl_logger - INFO - log_etl_start:74 - ETL Job Started: Transform Raw Trials Data
+2025-07-04 10:59:24,529 - etl_logger - INFO - transform_raw_trials:36 - Starting raw trials transformation
+2025-07-04 10:59:24,571 - etl_logger - INFO - log_performance:129 - Performance: query_execution - 0.000s
+2025-07-04 10:59:24,573 - etl_logger - INFO - transform_raw_trials:65 - Loaded 2000 raw trials for transformation
+2025-07-04 10:59:24,574 - etl_logger - INFO - apply_transformations:95 - Applying data transformations
+2025-07-04 10:59:24,575 - etl_logger - INFO - clean_text_fields:129 - Cleaning text fields
+2025-07-04 10:59:24,578 - etl_logger - INFO - parse_date_fields:147 - Parsing date fields
+2025-07-04 10:59:24,578 - etl_logger - INFO - process_location_data:163 - Processing location data
+2025-07-04 10:59:24,596 - etl_logger - INFO - process_sponsor_data:183 - Processing sponsor data
+2025-07-04 10:59:24,596 - etl_logger - ERROR - log_error:114 - Error in Raw trials transformation: 'lead_sponsor_name'
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'lead_sponsor_name'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 68, in transform_raw_trials
+    transformed_df = apply_transformations(raw_df)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 110, in apply_transformations
+    transformed = process_sponsor_data(transformed)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 186, in process_sponsor_data
+    df['lead_sponsor_name'] = df['lead_sponsor_name'].apply(normalize_sponsor_name)
+                              ~~^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/frame.py", line 4107, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'lead_sponsor_name'
+2025-07-04 10:59:24,601 - etl_logger - ERROR - log_error:114 - Error in Transform Raw Trials Data: 'lead_sponsor_name'
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'lead_sponsor_name'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/utils/logging.py", line 169, in wrapper
+    result = func(*args, **kwargs)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 68, in transform_raw_trials
+    transformed_df = apply_transformations(raw_df)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 110, in apply_transformations
+    transformed = process_sponsor_data(transformed)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 186, in process_sponsor_data
+    df['lead_sponsor_name'] = df['lead_sponsor_name'].apply(normalize_sponsor_name)
+                              ~~^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/frame.py", line 4107, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'lead_sponsor_name'
+2025-07-04 10:59:24,602 - etl_logger - INFO - log_etl_end:91 - ETL Job Completed: Transform Raw Trials Data - Duration: 0.07s, Rows: 0
+2025-07-04 10:59:24,602 - etl_logger - ERROR - log_error:114 - Error in Main transformation: 'lead_sponsor_name'
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'lead_sponsor_name'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 419, in main
+    transformed_df = transform_raw_trials()
+  File "/Users/sairampotlapalli/clinical_trails/utils/logging.py", line 169, in wrapper
+    result = func(*args, **kwargs)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 68, in transform_raw_trials
+    transformed_df = apply_transformations(raw_df)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 110, in apply_transformations
+    transformed = process_sponsor_data(transformed)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 186, in process_sponsor_data
+    df['lead_sponsor_name'] = df['lead_sponsor_name'].apply(normalize_sponsor_name)
+                              ~~^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/frame.py", line 4107, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'lead_sponsor_name'
+2025-07-04 10:59:24,604 - etl_logger - INFO - close:249 - Database connections closed
+2025-07-04 11:01:18,287 - etl_logger - INFO - _setup_connection:44 - Database connection established: sqlite
+2025-07-04 11:01:18,290 - etl_logger - INFO - log_etl_start:74 - ETL Job Started: Transform Raw Trials Data
+2025-07-04 11:01:18,291 - etl_logger - INFO - transform_raw_trials:36 - Starting raw trials transformation
+2025-07-04 11:01:18,329 - etl_logger - INFO - log_performance:129 - Performance: query_execution - 0.000s
+2025-07-04 11:01:18,332 - etl_logger - INFO - transform_raw_trials:74 - Loaded 2000 raw trials for transformation
+2025-07-04 11:01:18,332 - etl_logger - INFO - apply_transformations:104 - Applying data transformations
+2025-07-04 11:01:18,333 - etl_logger - INFO - clean_text_fields:138 - Cleaning text fields
+2025-07-04 11:01:18,340 - etl_logger - INFO - parse_date_fields:156 - Parsing date fields
+2025-07-04 11:01:18,340 - etl_logger - INFO - process_location_data:172 - Processing location data
+2025-07-04 11:01:18,358 - etl_logger - INFO - process_sponsor_data:192 - Processing sponsor data
+2025-07-04 11:01:18,392 - etl_logger - ERROR - log_error:114 - Error in Raw trials transformation: 'lead_sponsor_class'
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'lead_sponsor_class'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 77, in transform_raw_trials
+    transformed_df = apply_transformations(raw_df)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 119, in apply_transformations
+    transformed = process_sponsor_data(transformed)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 203, in process_sponsor_data
+    df['sponsor_type'] = df['lead_sponsor_class'].apply(categorize_sponsor_type)
+                         ~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/frame.py", line 4107, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'lead_sponsor_class'
+2025-07-04 11:01:18,398 - etl_logger - ERROR - log_error:114 - Error in Transform Raw Trials Data: 'lead_sponsor_class'
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'lead_sponsor_class'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/utils/logging.py", line 169, in wrapper
+    result = func(*args, **kwargs)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 77, in transform_raw_trials
+    transformed_df = apply_transformations(raw_df)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 119, in apply_transformations
+    transformed = process_sponsor_data(transformed)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 203, in process_sponsor_data
+    df['sponsor_type'] = df['lead_sponsor_class'].apply(categorize_sponsor_type)
+                         ~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/frame.py", line 4107, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'lead_sponsor_class'
+2025-07-04 11:01:18,399 - etl_logger - INFO - log_etl_end:91 - ETL Job Completed: Transform Raw Trials Data - Duration: 0.11s, Rows: 0
+2025-07-04 11:01:18,399 - etl_logger - ERROR - log_error:114 - Error in Main transformation: 'lead_sponsor_class'
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'lead_sponsor_class'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 428, in main
+    transformed_df = transform_raw_trials()
+  File "/Users/sairampotlapalli/clinical_trails/utils/logging.py", line 169, in wrapper
+    result = func(*args, **kwargs)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 77, in transform_raw_trials
+    transformed_df = apply_transformations(raw_df)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 119, in apply_transformations
+    transformed = process_sponsor_data(transformed)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 203, in process_sponsor_data
+    df['sponsor_type'] = df['lead_sponsor_class'].apply(categorize_sponsor_type)
+                         ~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/frame.py", line 4107, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'lead_sponsor_class'
+2025-07-04 11:01:18,400 - etl_logger - INFO - close:249 - Database connections closed
+2025-07-04 11:02:32,334 - etl_logger - INFO - _setup_connection:44 - Database connection established: sqlite
+2025-07-04 11:02:32,337 - etl_logger - INFO - log_etl_start:74 - ETL Job Started: Transform Raw Trials Data
+2025-07-04 11:02:32,337 - etl_logger - INFO - transform_raw_trials:36 - Starting raw trials transformation
+2025-07-04 11:02:32,377 - etl_logger - INFO - log_performance:129 - Performance: query_execution - 0.000s
+2025-07-04 11:02:32,379 - etl_logger - INFO - transform_raw_trials:83 - Loaded 2000 raw trials for transformation
+2025-07-04 11:02:32,379 - etl_logger - INFO - apply_transformations:113 - Applying data transformations
+2025-07-04 11:02:32,380 - etl_logger - INFO - clean_text_fields:147 - Cleaning text fields
+2025-07-04 11:02:32,389 - etl_logger - INFO - parse_date_fields:165 - Parsing date fields
+2025-07-04 11:02:32,389 - etl_logger - INFO - process_location_data:181 - Processing location data
+2025-07-04 11:02:32,407 - etl_logger - INFO - process_sponsor_data:201 - Processing sponsor data
+2025-07-04 11:02:32,447 - etl_logger - INFO - process_condition_data:219 - Processing condition data
+2025-07-04 11:02:32,448 - etl_logger - ERROR - log_error:114 - Error in Raw trials transformation: 'condition'
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'condition'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 86, in transform_raw_trials
+    transformed_df = apply_transformations(raw_df)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 131, in apply_transformations
+    transformed = process_condition_data(transformed)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 222, in process_condition_data
+    df['condition_category'] = df['condition'].apply(categorize_condition)
+                               ~~^^^^^^^^^^^^^
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/frame.py", line 4107, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'condition'
+2025-07-04 11:02:32,453 - etl_logger - ERROR - log_error:114 - Error in Transform Raw Trials Data: 'condition'
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'condition'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/utils/logging.py", line 169, in wrapper
+    result = func(*args, **kwargs)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 86, in transform_raw_trials
+    transformed_df = apply_transformations(raw_df)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 131, in apply_transformations
+    transformed = process_condition_data(transformed)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 222, in process_condition_data
+    df['condition_category'] = df['condition'].apply(categorize_condition)
+                               ~~^^^^^^^^^^^^^
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/frame.py", line 4107, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'condition'
+2025-07-04 11:02:32,454 - etl_logger - INFO - log_etl_end:91 - ETL Job Completed: Transform Raw Trials Data - Duration: 0.12s, Rows: 0
+2025-07-04 11:02:32,454 - etl_logger - ERROR - log_error:114 - Error in Main transformation: 'condition'
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'condition'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 437, in main
+    transformed_df = transform_raw_trials()
+  File "/Users/sairampotlapalli/clinical_trails/utils/logging.py", line 169, in wrapper
+    result = func(*args, **kwargs)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 86, in transform_raw_trials
+    transformed_df = apply_transformations(raw_df)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 131, in apply_transformations
+    transformed = process_condition_data(transformed)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 222, in process_condition_data
+    df['condition_category'] = df['condition'].apply(categorize_condition)
+                               ~~^^^^^^^^^^^^^
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/frame.py", line 4107, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'condition'
+2025-07-04 11:02:32,455 - etl_logger - INFO - close:249 - Database connections closed
+2025-07-04 11:03:32,133 - etl_logger - INFO - _setup_connection:44 - Database connection established: sqlite
+2025-07-04 11:03:32,136 - etl_logger - INFO - log_etl_start:74 - ETL Job Started: Transform Raw Trials Data
+2025-07-04 11:03:32,137 - etl_logger - INFO - transform_raw_trials:36 - Starting raw trials transformation
+2025-07-04 11:03:32,175 - etl_logger - INFO - log_performance:129 - Performance: query_execution - 0.000s
+2025-07-04 11:03:32,178 - etl_logger - INFO - transform_raw_trials:92 - Loaded 2000 raw trials for transformation
+2025-07-04 11:03:32,178 - etl_logger - INFO - apply_transformations:122 - Applying data transformations
+2025-07-04 11:03:32,180 - etl_logger - INFO - clean_text_fields:156 - Cleaning text fields
+2025-07-04 11:03:32,194 - etl_logger - INFO - parse_date_fields:174 - Parsing date fields
+2025-07-04 11:03:32,194 - etl_logger - INFO - process_location_data:190 - Processing location data
+2025-07-04 11:03:32,212 - etl_logger - INFO - process_sponsor_data:210 - Processing sponsor data
+2025-07-04 11:03:32,252 - etl_logger - INFO - process_condition_data:228 - Processing condition data
+2025-07-04 11:03:32,264 - etl_logger - INFO - process_intervention_data:242 - Processing intervention data
+2025-07-04 11:03:32,265 - etl_logger - ERROR - log_error:114 - Error in Raw trials transformation: 'intervention_name'
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'intervention_name'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 95, in transform_raw_trials
+    transformed_df = apply_transformations(raw_df)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 143, in apply_transformations
+    transformed = process_intervention_data(transformed)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 245, in process_intervention_data
+    df['intervention_id'] = df['intervention_name'].apply(
+                            ~~^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/frame.py", line 4107, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'intervention_name'
+2025-07-04 11:03:32,270 - etl_logger - ERROR - log_error:114 - Error in Transform Raw Trials Data: 'intervention_name'
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'intervention_name'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/utils/logging.py", line 169, in wrapper
+    result = func(*args, **kwargs)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 95, in transform_raw_trials
+    transformed_df = apply_transformations(raw_df)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 143, in apply_transformations
+    transformed = process_intervention_data(transformed)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 245, in process_intervention_data
+    df['intervention_id'] = df['intervention_name'].apply(
+                            ~~^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/frame.py", line 4107, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'intervention_name'
+2025-07-04 11:03:32,271 - etl_logger - INFO - log_etl_end:91 - ETL Job Completed: Transform Raw Trials Data - Duration: 0.13s, Rows: 0
+2025-07-04 11:03:32,271 - etl_logger - ERROR - log_error:114 - Error in Main transformation: 'intervention_name'
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'intervention_name'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 446, in main
+    transformed_df = transform_raw_trials()
+  File "/Users/sairampotlapalli/clinical_trails/utils/logging.py", line 169, in wrapper
+    result = func(*args, **kwargs)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 95, in transform_raw_trials
+    transformed_df = apply_transformations(raw_df)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 143, in apply_transformations
+    transformed = process_intervention_data(transformed)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 245, in process_intervention_data
+    df['intervention_id'] = df['intervention_name'].apply(
+                            ~~^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/frame.py", line 4107, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'intervention_name'
+2025-07-04 11:03:32,273 - etl_logger - INFO - close:249 - Database connections closed
+2025-07-04 11:04:24,210 - etl_logger - INFO - _setup_connection:44 - Database connection established: sqlite
+2025-07-04 11:04:24,213 - etl_logger - INFO - log_etl_start:74 - ETL Job Started: Transform Raw Trials Data
+2025-07-04 11:04:24,213 - etl_logger - INFO - transform_raw_trials:36 - Starting raw trials transformation
+2025-07-04 11:04:24,249 - etl_logger - INFO - log_performance:129 - Performance: query_execution - 0.000s
+2025-07-04 11:04:24,252 - etl_logger - INFO - transform_raw_trials:101 - Loaded 2000 raw trials for transformation
+2025-07-04 11:04:24,252 - etl_logger - INFO - apply_transformations:131 - Applying data transformations
+2025-07-04 11:04:24,254 - etl_logger - INFO - clean_text_fields:165 - Cleaning text fields
+2025-07-04 11:04:24,272 - etl_logger - INFO - parse_date_fields:183 - Parsing date fields
+2025-07-04 11:04:24,272 - etl_logger - INFO - process_location_data:199 - Processing location data
+2025-07-04 11:04:24,291 - etl_logger - INFO - process_sponsor_data:219 - Processing sponsor data
+2025-07-04 11:04:24,331 - etl_logger - INFO - process_condition_data:237 - Processing condition data
+2025-07-04 11:04:24,343 - etl_logger - INFO - process_intervention_data:251 - Processing intervention data
+2025-07-04 11:04:24,347 - etl_logger - ERROR - log_error:114 - Error in Raw trials transformation: 'intervention_type'
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'intervention_type'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 104, in transform_raw_trials
+    transformed_df = apply_transformations(raw_df)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 152, in apply_transformations
+    transformed = process_intervention_data(transformed)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 259, in process_intervention_data
+    df['intervention_category'] = df['intervention_type'].apply(categorize_intervention_type)
+                                  ~~^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/frame.py", line 4107, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'intervention_type'
+2025-07-04 11:04:24,353 - etl_logger - ERROR - log_error:114 - Error in Transform Raw Trials Data: 'intervention_type'
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'intervention_type'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/utils/logging.py", line 169, in wrapper
+    result = func(*args, **kwargs)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 104, in transform_raw_trials
+    transformed_df = apply_transformations(raw_df)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 152, in apply_transformations
+    transformed = process_intervention_data(transformed)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 259, in process_intervention_data
+    df['intervention_category'] = df['intervention_type'].apply(categorize_intervention_type)
+                                  ~~^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/frame.py", line 4107, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'intervention_type'
+2025-07-04 11:04:24,355 - etl_logger - INFO - log_etl_end:91 - ETL Job Completed: Transform Raw Trials Data - Duration: 0.14s, Rows: 0
+2025-07-04 11:04:24,355 - etl_logger - ERROR - log_error:114 - Error in Main transformation: 'intervention_type'
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'intervention_type'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 455, in main
+    transformed_df = transform_raw_trials()
+  File "/Users/sairampotlapalli/clinical_trails/utils/logging.py", line 169, in wrapper
+    result = func(*args, **kwargs)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 104, in transform_raw_trials
+    transformed_df = apply_transformations(raw_df)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 152, in apply_transformations
+    transformed = process_intervention_data(transformed)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 259, in process_intervention_data
+    df['intervention_category'] = df['intervention_type'].apply(categorize_intervention_type)
+                                  ~~^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/frame.py", line 4107, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'intervention_type'
+2025-07-04 11:04:24,356 - etl_logger - INFO - close:249 - Database connections closed
+2025-07-04 11:05:03,264 - etl_logger - INFO - _setup_connection:44 - Database connection established: sqlite
+2025-07-04 11:05:03,267 - etl_logger - INFO - log_etl_start:74 - ETL Job Started: Transform Raw Trials Data
+2025-07-04 11:05:03,267 - etl_logger - INFO - transform_raw_trials:36 - Starting raw trials transformation
+2025-07-04 11:05:03,304 - etl_logger - INFO - log_performance:129 - Performance: query_execution - 0.000s
+2025-07-04 11:05:03,307 - etl_logger - INFO - transform_raw_trials:110 - Loaded 2000 raw trials for transformation
+2025-07-04 11:05:03,307 - etl_logger - INFO - apply_transformations:140 - Applying data transformations
+2025-07-04 11:05:03,308 - etl_logger - INFO - clean_text_fields:174 - Cleaning text fields
+2025-07-04 11:05:03,330 - etl_logger - INFO - parse_date_fields:192 - Parsing date fields
+2025-07-04 11:05:03,330 - etl_logger - INFO - process_location_data:208 - Processing location data
+2025-07-04 11:05:03,348 - etl_logger - INFO - process_sponsor_data:228 - Processing sponsor data
+2025-07-04 11:05:03,388 - etl_logger - INFO - process_condition_data:246 - Processing condition data
+2025-07-04 11:05:03,400 - etl_logger - INFO - process_intervention_data:260 - Processing intervention data
+2025-07-04 11:05:03,405 - etl_logger - INFO - calculate_derived_fields:274 - Calculating derived fields
+2025-07-04 11:05:03,429 - etl_logger - ERROR - log_error:114 - Error in Raw trials transformation: 'phase'
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'phase'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 113, in transform_raw_trials
+    transformed_df = apply_transformations(raw_df)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 164, in apply_transformations
+    transformed = calculate_derived_fields(transformed)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 286, in calculate_derived_fields
+    df['phase_number'] = df['phase'].apply(extract_phase_number)
+                         ~~^^^^^^^^^
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/frame.py", line 4107, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'phase'
+2025-07-04 11:05:03,436 - etl_logger - ERROR - log_error:114 - Error in Transform Raw Trials Data: 'phase'
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'phase'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/utils/logging.py", line 169, in wrapper
+    result = func(*args, **kwargs)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 113, in transform_raw_trials
+    transformed_df = apply_transformations(raw_df)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 164, in apply_transformations
+    transformed = calculate_derived_fields(transformed)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 286, in calculate_derived_fields
+    df['phase_number'] = df['phase'].apply(extract_phase_number)
+                         ~~^^^^^^^^^
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/frame.py", line 4107, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'phase'
+2025-07-04 11:05:03,437 - etl_logger - INFO - log_etl_end:91 - ETL Job Completed: Transform Raw Trials Data - Duration: 0.17s, Rows: 0
+2025-07-04 11:05:03,437 - etl_logger - ERROR - log_error:114 - Error in Main transformation: 'phase'
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'phase'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 464, in main
+    transformed_df = transform_raw_trials()
+  File "/Users/sairampotlapalli/clinical_trails/utils/logging.py", line 169, in wrapper
+    result = func(*args, **kwargs)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 113, in transform_raw_trials
+    transformed_df = apply_transformations(raw_df)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 164, in apply_transformations
+    transformed = calculate_derived_fields(transformed)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 286, in calculate_derived_fields
+    df['phase_number'] = df['phase'].apply(extract_phase_number)
+                         ~~^^^^^^^^^
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/frame.py", line 4107, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'phase'
+2025-07-04 11:05:03,439 - etl_logger - INFO - close:249 - Database connections closed
+2025-07-04 11:05:58,324 - etl_logger - INFO - _setup_connection:44 - Database connection established: sqlite
+2025-07-04 11:05:58,328 - etl_logger - INFO - log_etl_start:74 - ETL Job Started: Transform Raw Trials Data
+2025-07-04 11:05:58,328 - etl_logger - INFO - transform_raw_trials:36 - Starting raw trials transformation
+2025-07-04 11:05:58,366 - etl_logger - INFO - log_performance:129 - Performance: query_execution - 0.000s
+2025-07-04 11:05:58,369 - etl_logger - INFO - transform_raw_trials:119 - Loaded 2000 raw trials for transformation
+2025-07-04 11:05:58,369 - etl_logger - INFO - apply_transformations:149 - Applying data transformations
+2025-07-04 11:05:58,370 - etl_logger - INFO - clean_text_fields:183 - Cleaning text fields
+2025-07-04 11:05:58,393 - etl_logger - INFO - parse_date_fields:201 - Parsing date fields
+2025-07-04 11:05:58,393 - etl_logger - INFO - process_location_data:217 - Processing location data
+2025-07-04 11:05:58,412 - etl_logger - INFO - process_sponsor_data:237 - Processing sponsor data
+2025-07-04 11:05:58,453 - etl_logger - INFO - process_condition_data:255 - Processing condition data
+2025-07-04 11:05:58,465 - etl_logger - INFO - process_intervention_data:269 - Processing intervention data
+2025-07-04 11:05:58,470 - etl_logger - INFO - calculate_derived_fields:283 - Calculating derived fields
+2025-07-04 11:05:58,496 - etl_logger - ERROR - log_error:114 - Error in Raw trials transformation: 'enrollment_count'
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'enrollment_count'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 122, in transform_raw_trials
+    transformed_df = apply_transformations(raw_df)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 173, in apply_transformations
+    transformed = calculate_derived_fields(transformed)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 298, in calculate_derived_fields
+    df['enrollment_category'] = df['enrollment_count'].apply(categorize_enrollment)
+                                ~~^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/frame.py", line 4107, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'enrollment_count'
+2025-07-04 11:05:58,504 - etl_logger - ERROR - log_error:114 - Error in Transform Raw Trials Data: 'enrollment_count'
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'enrollment_count'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/utils/logging.py", line 169, in wrapper
+    result = func(*args, **kwargs)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 122, in transform_raw_trials
+    transformed_df = apply_transformations(raw_df)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 173, in apply_transformations
+    transformed = calculate_derived_fields(transformed)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 298, in calculate_derived_fields
+    df['enrollment_category'] = df['enrollment_count'].apply(categorize_enrollment)
+                                ~~^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/frame.py", line 4107, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'enrollment_count'
+2025-07-04 11:05:58,505 - etl_logger - INFO - log_etl_end:91 - ETL Job Completed: Transform Raw Trials Data - Duration: 0.18s, Rows: 0
+2025-07-04 11:05:58,505 - etl_logger - ERROR - log_error:114 - Error in Main transformation: 'enrollment_count'
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'enrollment_count'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 473, in main
+    transformed_df = transform_raw_trials()
+  File "/Users/sairampotlapalli/clinical_trails/utils/logging.py", line 169, in wrapper
+    result = func(*args, **kwargs)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 122, in transform_raw_trials
+    transformed_df = apply_transformations(raw_df)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 173, in apply_transformations
+    transformed = calculate_derived_fields(transformed)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 298, in calculate_derived_fields
+    df['enrollment_category'] = df['enrollment_count'].apply(categorize_enrollment)
+                                ~~^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/frame.py", line 4107, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'enrollment_count'
+2025-07-04 11:05:58,506 - etl_logger - INFO - close:249 - Database connections closed
+2025-07-04 11:06:55,761 - etl_logger - INFO - _setup_connection:44 - Database connection established: sqlite
+2025-07-04 11:06:55,765 - etl_logger - INFO - log_etl_start:74 - ETL Job Started: Transform Raw Trials Data
+2025-07-04 11:06:55,765 - etl_logger - INFO - transform_raw_trials:36 - Starting raw trials transformation
+2025-07-04 11:06:55,806 - etl_logger - INFO - log_performance:129 - Performance: query_execution - 0.000s
+2025-07-04 11:06:55,809 - etl_logger - INFO - transform_raw_trials:130 - Loaded 2000 raw trials for transformation
+2025-07-04 11:06:55,809 - etl_logger - INFO - apply_transformations:160 - Applying data transformations
+2025-07-04 11:06:55,810 - etl_logger - INFO - clean_text_fields:194 - Cleaning text fields
+2025-07-04 11:06:55,833 - etl_logger - INFO - parse_date_fields:212 - Parsing date fields
+2025-07-04 11:06:55,833 - etl_logger - INFO - process_location_data:228 - Processing location data
+2025-07-04 11:06:55,852 - etl_logger - INFO - process_sponsor_data:248 - Processing sponsor data
+2025-07-04 11:06:55,892 - etl_logger - INFO - process_condition_data:266 - Processing condition data
+2025-07-04 11:06:55,905 - etl_logger - INFO - process_intervention_data:280 - Processing intervention data
+2025-07-04 11:06:55,909 - etl_logger - INFO - calculate_derived_fields:294 - Calculating derived fields
+2025-07-04 11:06:55,937 - etl_logger - ERROR - log_error:114 - Error in Raw trials transformation: 'status'
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'status'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 133, in transform_raw_trials
+    transformed_df = apply_transformations(raw_df)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 184, in apply_transformations
+    transformed = calculate_derived_fields(transformed)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 312, in calculate_derived_fields
+    df['is_completed'] = df['status'].apply(lambda x: 'completed' in str(x).lower() if pd.notna(x) else False)
+                         ~~^^^^^^^^^^
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/frame.py", line 4107, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'status'
+2025-07-04 11:06:55,943 - etl_logger - ERROR - log_error:114 - Error in Transform Raw Trials Data: 'status'
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'status'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/utils/logging.py", line 169, in wrapper
+    result = func(*args, **kwargs)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 133, in transform_raw_trials
+    transformed_df = apply_transformations(raw_df)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 184, in apply_transformations
+    transformed = calculate_derived_fields(transformed)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 312, in calculate_derived_fields
+    df['is_completed'] = df['status'].apply(lambda x: 'completed' in str(x).lower() if pd.notna(x) else False)
+                         ~~^^^^^^^^^^
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/frame.py", line 4107, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'status'
+2025-07-04 11:06:55,944 - etl_logger - INFO - log_etl_end:91 - ETL Job Completed: Transform Raw Trials Data - Duration: 0.18s, Rows: 0
+2025-07-04 11:06:55,944 - etl_logger - ERROR - log_error:114 - Error in Main transformation: 'status'
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'status'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 484, in main
+    transformed_df = transform_raw_trials()
+  File "/Users/sairampotlapalli/clinical_trails/utils/logging.py", line 169, in wrapper
+    result = func(*args, **kwargs)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 133, in transform_raw_trials
+    transformed_df = apply_transformations(raw_df)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 184, in apply_transformations
+    transformed = calculate_derived_fields(transformed)
+  File "/Users/sairampotlapalli/clinical_trails/data_cleaning/transform_trials.py", line 312, in calculate_derived_fields
+    df['is_completed'] = df['status'].apply(lambda x: 'completed' in str(x).lower() if pd.notna(x) else False)
+                         ~~^^^^^^^^^^
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/frame.py", line 4107, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/Users/sairampotlapalli/clinical_trails/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'status'
+2025-07-04 11:06:55,945 - etl_logger - INFO - close:249 - Database connections closed
+2025-07-04 11:07:27,063 - etl_logger - INFO - _setup_connection:44 - Database connection established: sqlite
+2025-07-04 11:07:27,066 - etl_logger - INFO - log_etl_start:74 - ETL Job Started: Transform Raw Trials Data
+2025-07-04 11:07:27,067 - etl_logger - INFO - transform_raw_trials:36 - Starting raw trials transformation
+2025-07-04 11:07:27,106 - etl_logger - INFO - log_performance:129 - Performance: query_execution - 0.000s
+2025-07-04 11:07:27,109 - etl_logger - INFO - transform_raw_trials:141 - Loaded 2000 raw trials for transformation
+2025-07-04 11:07:27,109 - etl_logger - INFO - apply_transformations:171 - Applying data transformations
+2025-07-04 11:07:27,111 - etl_logger - INFO - clean_text_fields:205 - Cleaning text fields
+2025-07-04 11:07:27,135 - etl_logger - INFO - parse_date_fields:223 - Parsing date fields
+2025-07-04 11:07:27,136 - etl_logger - INFO - process_location_data:239 - Processing location data
+2025-07-04 11:07:27,154 - etl_logger - INFO - process_sponsor_data:259 - Processing sponsor data
+2025-07-04 11:07:27,194 - etl_logger - INFO - process_condition_data:277 - Processing condition data
+2025-07-04 11:07:27,207 - etl_logger - INFO - process_intervention_data:291 - Processing intervention data
+2025-07-04 11:07:27,211 - etl_logger - INFO - calculate_derived_fields:305 - Calculating derived fields
+2025-07-04 11:07:27,342 - etl_logger - INFO - log_data_quality:99 - Data Quality Report - Table: transformed_trials
+2025-07-04 11:07:27,343 - etl_logger - INFO - transform_raw_trials:154 - Transformation completed: 2000 trials processed
+2025-07-04 11:07:27,343 - etl_logger - INFO - log_etl_end:91 - ETL Job Completed: Transform Raw Trials Data - Duration: 0.28s, Rows: 2,000
+2025-07-04 11:07:27,343 - etl_logger - INFO - main:498 - Data transformation completed successfully
+2025-07-04 11:07:27,343 - etl_logger - INFO - close:249 - Database connections closed
+2025-07-04 11:08:25,132 - etl_logger - INFO - _setup_connection:44 - Database connection established: sqlite
+2025-07-04 11:08:25,292 - etl_logger - INFO - log_performance:129 - Performance: query_execution - 0.000s
+2025-07-04 11:08:25,299 - etl_logger - INFO - log_performance:129 - Performance: query_execution - 0.000s
+2025-07-04 11:08:25,306 - etl_logger - INFO - log_performance:129 - Performance: query_execution - 0.000s
+2025-07-04 11:08:25,325 - etl_logger - INFO - log_performance:129 - Performance: query_execution - 0.000s
+2025-07-04 11:08:25,328 - etl_logger - INFO - log_performance:129 - Performance: query_execution - 0.000s
